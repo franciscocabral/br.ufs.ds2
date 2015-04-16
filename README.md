@@ -1,28 +1,51 @@
-== README
+# Trabalho de Desenvolvimento de Software 2 #
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Período:** 2015.1
 
-Things you may want to cover:
+**Grupo:** 3
 
-* Ruby version
+**Tema do projeto:** Restaurante
 
-* System dependencies
+-----
 
-* Configuration
+## Componentes: ##
 
-* Database creation
+* Caique
 
-* Database initialization
+* Cláudio
 
-* How to run the test suite
+* Ícaro
 
-* Services (job queues, cache servers, search engines, etc.)
+* Florêncio
 
-* Deployment instructions
+* Francisco
 
-* ...
+* Renato
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+## Especificações: ##
+
+* Ruby on Rails
+
+* MySQL
+
+* Web
+
+
+
+-----
+**Ruby:** [https://www.ruby-lang.org/pt/downloads/](https://www.ruby-lang.org/pt/downloads/)
+
+**Rails:** [http://www.rubyonrails.com.br/down](http://www.rubyonrails.com.br/down)
+ 
+```
+#!shell
+
+sudo apt-get install ruby-full libmysqlclient-dev nodejs
+gem install rails
+cd /diretório/do/projeto
+git clone https://>>>>seu_usuário<<<<@bitbucket.org/Ds2G3/restaurante-g3.git
+cd ./restaurante-g3
+rails server
+```
