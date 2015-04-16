@@ -49,3 +49,33 @@ git clone https://>>>>seu_usuário<<<<@bitbucket.org/Ds2G3/restaurante-g3.git
 cd ./restaurante-g3
 rails server
 ```
+
+-----
+## Configurações do Banco de Dados ##
+
+**Local do arquivo:**  /diretório/do/projeto/restaurante-g3/config/database.yml
+
+**Nome:** br.com.ds2.restaurante 
+
+**Usuário:** root
+
+**Senha:** 
+
+**Host:** bd.ds2.com.br
+
+### Alterando Host ###
+
+```
+#!shell
+sudo nano /etc/hosts
+```
+Altere a linha: 
+```
+#!text
+127.0.0.1           localhost
+```
+Para:
+```
+#!text
+127.0.0.1           localhost             bd.ds2.com.br
+```
