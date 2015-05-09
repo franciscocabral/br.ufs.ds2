@@ -1,0 +1,22 @@
+A próxima entrega do trabalho é composta dos próximos 3 passos:
+
+1 - Elaborar 5 diagramas de sequência, relativos aos casos de uso de maior complexidade.
+2 - Elaborar diagramas de atividades para processos/algoritmos complexos.
+3 - Elaborar a interface gráfica/protótipo do software.
+
+Minhas sugestões:
+
+Para os diagramas de sequências eu sugiro os seguintes casos de uso:
+
+1. Inclusão de Produtos;
+2. Inclusão de Pedidos na Comanda;
+3. Consulta informações de Pedidos na Comanda;
+4. Geração de Lista de itens por Produto;
+5. Inclusão de Comanda.
+
+Para os diagramas de Atividades eu sugiro(ou pelo menos um deles):
+1. Inclusão de Produtos;
+2. Consulta informações de Pedidos na Comanda;
+3. Geração de Lista de itens por Produto;
+
+Quanto as telas se forem protótipos simples podemos gerar com o próprio Rails é bem fácil. O problema é apenas o design que é bem simples, apenas o formulário no HTML, embora seja plenamente funcional é "feio".
