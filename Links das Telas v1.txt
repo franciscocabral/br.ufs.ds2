@@ -1,8 +1,10 @@
-1 - Tela de cadastro de funcionario: http://www.gliffy.com/go/publish/8075661
-2 - Consulta de funcionário: http://www.gliffy.com/go/publish/8075833
-3 - FeedBack: http://www.gliffy.com/go/publish/8076107
-4 - Tela principal do gerente: http://www.gliffy.com/go/publish/8076049
-5 - Tela de edição de funcionário: http://www.gliffy.com/go/publish/8075883
-6 - Cadastro de produto: http://www.gliffy.com/go/publish/8076275
-7 - Alterar produto: http://www.gliffy.com/go/publish/8076303
-8 - Consulta Produtos: http://www.gliffy.com/go/publish/8076357
+1  - Tela de cadastro de funcionario: http://www.gliffy.com/go/publish/8075661
+2  - Consulta de funcionário: http://www.gliffy.com/go/publish/8075833
+3  - FeedBack: http://www.gliffy.com/go/publish/8076107
+4  - Tela principal do gerente: http://www.gliffy.com/go/publish/8076049
+5  - Tela de edição de funcionário: http://www.gliffy.com/go/publish/8075883
+6  - Cadastro de produto: http://www.gliffy.com/go/publish/8076275
+7  - Alterar produto: http://www.gliffy.com/go/publish/8076303
+8  - Consulta Produtos: http://www.gliffy.com/go/publish/8076357
+9  - Pesquisar Fornecedor: https://www.gliffy.com/go/publish/8072321
+10 - Cadastrar Fornecedor: https://www.gliffy.com/go/publish/8071293
