@@ -11,16 +11,16 @@
 
 
 
-
+As telas precisarão de menu de acesso:
 _____________________________________________________
-tela inicial
+->tela inicial
 	->tela principal do gerente
 		.funcionario->cadastrar/consulta/modificar
 		.fornecedor->pesquisar/cadastrar
-		.produto-> cadastro/alterar/consulta
+		.produto->cadastro/alterar/consulta
 	->tela principal do garçom
 		.funcionario->cadastrar/consulta/modificar
 		.fornecedor->pesquisar/cadastrar
-		.produto-> cadastro/alterar/consulta
+		.produto->cadastro/alterar/consulta
 	->feedback
 _____________________________________________________
