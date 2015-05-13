@@ -10,7 +10,26 @@
 10 - Cadastrar Fornecedor: https://www.gliffy.com/go/publish/8071293
 
 11 - Tela Principal do Funcionário - Comandas Abertas: http://www.gliffy.com/go/publish/8086759
-12 - Consultar pedidos por Comanda: http://www.gliffy.com/go/publish/8086871
+12 - Consultar pedidos por Comanda:http://www.gliffy.com/go/publish/8086871
+
+
+Tela v2
+
+1  - Tela de cadastro de funcionario: 					http://www.gliffy.com/go/publish/8091155
+2  - Consulta de funcionбrio:							http://www.gliffy.com/go/publish/8092303
+3  - FeedBack:											http://www.gliffy.com/go/publish/8076107  -- precisa discutir
+4  - Tela principal do gerente:							http://www.gliffy.com/go/publish/8076049  -- Precisa discutir.
+5  - Tela de edição de funcionário:						http://www.gliffy.com/go/publish/8091749
+6  - Cadastro de produto: 								http://www.gliffy.com/go/publish/8091871
+7  - Alterar produto: 									http://www.gliffy.com/go/publish/8091907
+8  - Consulta Produtos: 								http://www.gliffy.com/go/publish/8091989
+9  - Pesquisar Fornecedor: 								http://www.gliffy.com/go/publish/8092055
+10 - Cadastrar Fornecedor:								http://www.gliffy.com/go/publish/8092211
+11 - Tela Principal do Funcionário - Comandas Abertas:	http://www.gliffy.com/go/publish/8086759
+12 - Consultar pedidos por Comanda:						http://www.gliffy.com/go/publish/8086871
+13 - Cadastrar Comanda:                                 Felipe"Fazendo"
+14 - Excluir Comanda:                                   Felipe"Fazendo"
+
 
 As telas precisarão de menu de acesso:
 _____________________________________________________
