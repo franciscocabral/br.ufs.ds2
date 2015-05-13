@@ -9,7 +9,8 @@
 9  - Pesquisar Fornecedor: https://www.gliffy.com/go/publish/8072321
 10 - Cadastrar Fornecedor: https://www.gliffy.com/go/publish/8071293
 
-
+11 - Tela Principal do Funcionário - Comandas Abertas: http://www.gliffy.com/go/publish/8086759
+12 - Consultar pedidos por Comanda: http://www.gliffy.com/go/publish/8086871
 
 As telas precisarão de menu de acesso:
 _____________________________________________________
