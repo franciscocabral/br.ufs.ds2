@@ -1,33 +1,29 @@
-1  - Tela de cadastro de funcionario: http://www.gliffy.com/go/publish/8075661
-2  - Consulta de funcionбrio: http://www.gliffy.com/go/publish/8075833
-3  - FeedBack: http://www.gliffy.com/go/publish/8076107
-4  - Tela principal do gerente: http://www.gliffy.com/go/publish/8076049
-5  - Tela de ediзгo de funcionбrio: http://www.gliffy.com/go/publish/8075883
-6  - Cadastro de produto: http://www.gliffy.com/go/publish/8076275
-7  - Alterar produto: http://www.gliffy.com/go/publish/8076303
-8  - Consulta Produtos: http://www.gliffy.com/go/publish/8076357
-9  - Pesquisar Fornecedor: https://www.gliffy.com/go/publish/8072321
-10 - Cadastrar Fornecedor: https://www.gliffy.com/go/publish/8071293
-
-11 - Tela Principal do Funcionário - Comandas Abertas: http://www.gliffy.com/go/publish/8086759
-12 - Consultar pedidos por Comanda:http://www.gliffy.com/go/publish/8086871
-
-
 Tela v2
 
-1  - Tela de cadastro de funcionario: 					http://www.gliffy.com/go/publish/8091155
-2  - Consulta de funcionбrio:							http://www.gliffy.com/go/publish/8092303
-3  - FeedBack:											http://www.gliffy.com/go/publish/8076107  -- precisa discutir
-4  - Tela principal do gerente:							http://www.gliffy.com/go/publish/8076049  -- Precisa discutir.
-5  - Tela de edição de funcionário:						http://www.gliffy.com/go/publish/8091749
-6  - Cadastro de produto: 								http://www.gliffy.com/go/publish/8091871
-7  - Alterar produto: 									http://www.gliffy.com/go/publish/8091907
-8  - Consulta Produtos: 								http://www.gliffy.com/go/publish/8091989
-9  - Pesquisar Fornecedor: 								http://www.gliffy.com/go/publish/8092055
-10 - Cadastrar Fornecedor:								http://www.gliffy.com/go/publish/8092211
-11 - Tela Principal do Funcionário - Comandas Abertas:	http://www.gliffy.com/go/publish/8086759
-12 - Consultar pedidos por Comanda:						http://www.gliffy.com/go/publish/8086871
-13 - Cadastrar Comanda:                                 Felipe"Fazendo"
+1  - Funcionario Cadastro: http://www.gliffy.com/go/publish/8091155
+2  - Funcionario Consulta: http://www.gliffy.com/go/publish/8092303
+3  - Funcionario Alterar: http://www.gliffy.com/go/publish/8106761
+4 - Funcionario Excluir: http://www.gliffy.com/go/publish/8105705
+5  - Produto Cadastro: http://www.gliffy.com/go/publish/8091871
+6  - Produto Alterar: http://www.gliffy.com/go/publish/8091907
+7  - Produto Consulta: http://www.gliffy.com/go/publish/8091989
+8 - Produto Excluir: http://www.gliffy.com/go/publish/8105857
+9 - Fornecedor Consultar: http://www.gliffy.com/go/publish/8092055
+10 - Fornecedor Cadastrar: http://www.gliffy.com/go/publish/8092211
+11 - Fornecedor Alterar: http://www.gliffy.com/go/publish/8105907
+12 - Fornecedor Excluir: http://www.gliffy.com/go/publish/8105965
+13 - Comanda Consultar: http://www.gliffy.com/go/publish/8086871
+14 - Comanda Cadastrar: http://www.gliffy.com/go/publish/8106091
+15- Gerente HomePage: http://www.gliffy.com/go/publish/8076049
+16- Garçom HomePage: http://www.gliffy.com/go/publish/8086759
+17 - Cozinheiro HomePage: Dúvida
+18 - Item Cadastro: http://www.gliffy.com/go/publish/8106223
+19 - Item Consulta: http://www.gliffy.com/go/publish/8106275
+20 - Item Alterar: http://www.gliffy.com/go/publish/8106275 
+21 - Item Excluir: http://www.gliffy.com/go/publish/8106275
+22 - Diversos FeedBack: http://www.gliffy.com/go/publish/8076107
+23 - Diversos Pagamento: DISCUTIR!!!
+
 
 
 As telas precisarão de menu de acesso:
