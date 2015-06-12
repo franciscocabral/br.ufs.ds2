@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idPedido: 1
+  idFuncionario: 1
+  idProduto: 1
+  idcomanda: 1
+  dataPedido: 2015-06-12 17:16:00
+  dataFinalizacao: 2015-06-12 17:16:00
+  cancelado: false
+
+two:
+  idPedido: 1
+  idFuncionario: 1
+  idProduto: 1
+  idcomanda: 1
+  dataPedido: 2015-06-12 17:16:00
+  dataFinalizacao: 2015-06-12 17:16:00
+  cancelado: false

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idVende: 1
+  idFornecedor: 1
+  idItem: 1
+  data: 2015-06-12
+  valor: 1.5
+
+two:
+  idVende: 1
+  idFornecedor: 1
+  idItem: 1
+  data: 2015-06-12
+  valor: 1.5

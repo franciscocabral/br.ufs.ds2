@@ -1,0 +1,44 @@
+Descrição completa das modificações feitas hoje.
+
+
+1- Organizar os documentos que estavam espalhados pela pasta;
+   1- Criar a pasta documentos;
+   2- Crias duas pastas dentro de docomentos;
+   3- Compiar o conteudo da pasta documentos DSI para a pasta DSI;
+   4- Criar a pasta DSII e copiar nela os documentos que estavam na pasta principal do repositorio.
+
+2- Gerar modelos a partir dos banco de dados.
+
+Os comandos usados para a geração dos modelos foram os que seguem:
+
+OBS1.: Para aqueles que não tem muito costume com sistemas linux é normal encontrar o simbolo dollar "$" como indicativo de que a linha é um comando executado no terminal
+
+OBS2.: O simbolo cerquilha "#" é usado para se indicar que o comando é executado como administrador.
+
+$rake db:schema:dump
+
+$scaffold -c -p db/schema.rb
+
+$rails generate model Comanda idcomanda:integer idFuncionario:integer mesa:integer dataAbertura:datetime dataEncerramento:datetime valorFinal:float --no-migration
+
+$rails generate model ComponentesProduto idCompoe:integer idProduto:integer idItem:integer quantidade:integer --no-migration
+
+$rails generate model Fornecedor nome:string cnpj:string cidade:string estado:string num:string endereco:string telefone:string --no-migration
+
+$rails generate model Funcionario nome:string cpf:string cidade:string estado:string num:string endereco:string telefone:string salario:float dataContratacao:date ativo:boolean turno:integer login:string senha:string nivelAcesso:integer --no-migration
+
+$rails generate model Item nome:string marca:string descricao:string quantidade:integer quantidadeMinima:integer --no-migration
+
+$rails generate model Pedido idPedido:integer idFuncionario:integer idProduto:integer idcomanda:integer dataPedido:datetime dataFinalizacao:datetime cancelado:boolean --no-migration
+
+$rails generate model Produto nome:string valor:float descricao:string --no-migration
+
+$rails generate model Vende idVende:integer idFornecedor:integer idItem:integer data:date valor:float --no-migration
+
+3- Proximo passo. Agora é necessario melhorar nossos modelos antes de gerar o resto dos scaffolds;
+   1- Cada um deve escolher um modelo para fazer;
+   2- Verificar a correção dos dados das tabelas.
+   2- Adicionar Validações;
+   3- Adicionar Relacionamentos;
+
+4- Trabalhar com o Layout (Depois decidimos melhor essa etapa).

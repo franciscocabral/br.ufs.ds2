@@ -14,21 +14,19 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  host: db.ds2.com.br
-  port: 3306
+  password: 123456
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: br.com.ds2.restaurante
+  database: restaurante-g3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: br.com.ds2.restaurante
+  database: restaurante-g3_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: br.com.ds2.restaurante
-#  username: restaurante-g3
-#  password: <%= ENV['RESTAURANTE-G3_DATABASE_PASSWORD'] %>
+  database: restaurante-g3_production
+  username: restaurante-g3
+  password: <%= ENV['RESTAURANTE-G3_DATABASE_PASSWORD'] %>

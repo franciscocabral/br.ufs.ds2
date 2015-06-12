@@ -1,0 +1,15 @@
+rails generate scaffold Comanda idcomanda:integer idFuncionario:integer mesa:integer dataAbertura:datetime dataEncerramento:datetime valorFinal:float --no-migration
+
+rails generate scaffold ComponentesProduto idCompoe:integer idProduto:integer idItem:integer quantidade:integer --no-migration
+
+rails generate scaffold Fornecedor nome:string cnpj:string cidade:string estado:string num:string endereco:string telefone:string --no-migration
+
+rails generate scaffold Funcionario nome:string cpf:string cidade:string estado:string num:string endereco:string telefone:string salario:float dataContratacao:date ativo:boolean turno:integer login:string senha:string nivelAcesso:integer --no-migration
+
+rails generate scaffold Item nome:string marca:string descricao:string quantidade:integer quantidadeMinima:integer --no-migration
+
+rails generate scaffold Pedido idPedido:integer idFuncionario:integer idProduto:integer idcomanda:integer dataPedido:datetime dataFinalizacao:datetime cancelado:boolean --no-migration
+
+rails generate scaffold Produto nome:string valor:float descricao:string --no-migration
+
+rails generate scaffold Vende idVende:integer idFornecedor:integer idItem:integer data:date valor:float --no-migration
