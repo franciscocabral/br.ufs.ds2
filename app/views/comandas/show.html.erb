@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idcomanda:</strong>
+  <%= @comanda.idcomanda %>
+</p>
+
+<p>
+  <strong>Idfuncionario:</strong>
+  <%= @comanda.idFuncionario %>
+</p>
+
+<p>
+  <strong>Mesa:</strong>
+  <%= @comanda.mesa %>
+</p>
+
+<p>
+  <strong>Dataabertura:</strong>
+  <%= @comanda.dataAbertura %>
+</p>
+
+<p>
+  <strong>Dataencerramento:</strong>
+  <%= @comanda.dataEncerramento %>
+</p>
+
+<p>
+  <strong>Valorfinal:</strong>
+  <%= @comanda.valorFinal %>
+</p>
+
+<%= link_to 'Edit', edit_comanda_path(@comanda) %> |
+<%= link_to 'Back', comandas_path %>

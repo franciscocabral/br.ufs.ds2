@@ -7,8 +7,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="main_content">
+    <header>
+      <!-- <h1>Restaurante G3</h1> -->
+      <%= image_tag "logo2.png" %>
+    </header>
 
-<%= yield %>
+    <nav>
+      <ul class="menu">
+      <% if logged_in? %>
+        <p>
+          <b>Funcionário:</b> <%= current_funcionario.nome %>
+        </p>
+        <li class="menu_item">
+          <%= link_to "My Home", current_funcionario %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "fornecedores", fornecedors_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "pedidos", pedidos_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "produtos", produtos_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "Items", items_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "comandas", comandas_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "Componentes", componentes_produtos_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "Vende", vendes_path %>
+        </li>
+        <li class="menu_item">
+          <%= link_to "Log out", logout_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="menu_item">
+          <%= link_to "Log in", login_path, method: :get %>
+        </li>
+      <% end %>
+    </nav>
 
+    <aside>
+      <ul class="side_menu">
+        <li class="side_menu_item"><%= link_to "Home", home_path, class: "btn btn-primary" %></li>
+        <li class="side_menu_item"><%= link_to "About", about_path, class: "btn btn-primary" %></li>
+        <li class="side_menu_item"><%= link_to "Contact", contact_path, class: "btn btn-primary" %></li>
+        <li class="side_menu_item"><%= link_to "Help", help_path, class: "btn btn-primary" %></li>
+        <li class="side_menu_item"><a href="#">Último link</a></li>
+      </ul>
+    </aside>
+
+    <section>
+      <%= yield %>
+    </section>
+
+    <footer>Restaurante software &copy; G3 </footer>
+  </div>
 </body>
 </html>

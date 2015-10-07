@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @item.nome %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @item.marca %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @item.descricao %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @item.quantidade %>
+</p>
+
+<p>
+  <strong>Quantidademinima:</strong>
+  <%= @item.quantidadeMinima %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

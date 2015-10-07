@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idpedido:</strong>
+  <%= @pedido.idPedido %>
+</p>
+
+<p>
+  <strong>Idfuncionario:</strong>
+  <%= @pedido.idFuncionario %>
+</p>
+
+<p>
+  <strong>Idproduto:</strong>
+  <%= @pedido.idProduto %>
+</p>
+
+<p>
+  <strong>Idcomanda:</strong>
+  <%= @pedido.idcomanda %>
+</p>
+
+<p>
+  <strong>Datapedido:</strong>
+  <%= @pedido.dataPedido %>
+</p>
+
+<p>
+  <strong>Datafinalizacao:</strong>
+  <%= @pedido.dataFinalizacao %>
+</p>
+
+<p>
+  <strong>Cancelado:</strong>
+  <%= @pedido.cancelado %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>
