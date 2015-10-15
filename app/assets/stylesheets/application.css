@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+ div.main_content {
+   margin-left:  12%;
+   margin-right: 12%;
+ }
+
+ header {
+   align-content: center;
+   text-align: center;
+   background-color: #FFFFFF;
+   padding: 10px 10px 10px 10px;
+ }
+
+ nav {
+   text-align: center;
+   background-color: #EEEEEE;
+   padding: 10px 10px 10px 10px;
+ }
+
+ aside {
+   background-color: #DDDDDD;
+   padding: 10px 0px 10px 0px;
+   width: 27%;
+   float: left;
+ }
+
+ section {
+   background-color: #CCCCCC;
+   padding: 10px 0px 10px 10px;
+   float: right;
+   width: 70%;
+ }
+
+ footer {
+   background-color: #BBBBBB;
+   padding: 10px 10px 10px 10px;
+   clear: both;
+   text-align: center;
+ }
+
+ /*Menu horizontal*/
+
+ ul.menu {
+   list-style-type: none;
+ }
+
+ li.menu_item {
+   display: inline;
+   padding: 10px;
+ }
+
+ ul.menu li.menu_item a {
+   text-decoration: none;
+   padding: 8px 8px 8px 8px;
+  }
+
+  ul.menu li.menu_item a:hover {
+    color: red;
+    background-color: #AAAAAA;
+   }
+
+ /*Menu vertical*/
+
+ ul.side_menu {
+   list-style-type: none;
+ }
+
+ li.side_menu_item {
+     padding: 0px 10px 0px 0px;
+ }
+
+ ul.side_menu li.side_menu_item a {
+   text-decoration: none;
+   display: block;
+   width: 95px;
+   padding: 8px 0px 8px 0px;
+  }
+
+  ul.side_menu li.side_menu_item a:hover {
+    color: red;
+    background-color: #999999;
+   }

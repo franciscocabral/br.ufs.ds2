@@ -22,5 +22,7 @@ module RestauranteG3
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ActiveRecord::Base.pluralize_table_names = false
   end
 end

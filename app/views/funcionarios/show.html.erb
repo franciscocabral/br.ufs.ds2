@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @funcionario.nome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @funcionario.cpf %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @funcionario.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @funcionario.estado %>
+</p>
+
+<p>
+  <strong>Num:</strong>
+  <%= @funcionario.num %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @funcionario.endereco %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @funcionario.telefone %>
+</p>
+
+<p>
+  <strong>Salario:</strong>
+  <%= @funcionario.salario %>
+</p>
+
+<p>
+  <strong>Datacontratacao:</strong>
+  <%= @funcionario.dataContratacao %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @funcionario.ativo %>
+</p>
+
+<p>
+  <strong>Turno:</strong>
+  <%= @funcionario.turno %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @funcionario.login %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @funcionario.password_digest %>
+</p>
+
+<p>
+  <strong>Nivelacesso:</strong>
+  <%= @funcionario.nivelAcesso %>
+</p>
+
+<%= link_to 'Edit', edit_funcionario_path(@funcionario) %> |
+<%= link_to 'Back', funcionarios_path %>

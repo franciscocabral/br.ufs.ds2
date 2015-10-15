@@ -4,14 +4,14 @@ one:
   idcomanda: 1
   idFuncionario: 1
   mesa: 1
-  dataAbertura: 2015-06-12 17:15:12
-  dataEncerramento: 2015-06-12 17:15:12
+  dataAbertura: 2015-09-18 18:20:11
+  dataEncerramento: 2015-09-18 18:20:11
   valorFinal: 1.5
 
 two:
   idcomanda: 1
   idFuncionario: 1
   mesa: 1
-  dataAbertura: 2015-06-12 17:15:12
-  dataEncerramento: 2015-06-12 17:15:12
+  dataAbertura: 2015-09-18 18:20:11
+  dataEncerramento: 2015-09-18 18:20:11
   valorFinal: 1.5

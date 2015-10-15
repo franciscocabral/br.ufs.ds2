@@ -9,11 +9,11 @@ one:
   endereco: MyString
   telefone: MyString
   salario: 1.5
-  dataContratacao: 2015-06-12
+  dataContratacao: 2015-09-18
   ativo: false
   turno: 1
   login: MyString
-  senha: MyString
+  password_digest: MyString
   nivelAcesso: 1
 
 two:
@@ -25,9 +25,9 @@ two:
   endereco: MyString
   telefone: MyString
   salario: 1.5
-  dataContratacao: 2015-06-12
+  dataContratacao: 2015-09-18
   ativo: false
   turno: 1
   login: MyString
-  senha: MyString
+  password_digest: MyString
   nivelAcesso: 1

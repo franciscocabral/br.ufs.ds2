@@ -1,0 +1,2 @@
+module VendesHelper
+end

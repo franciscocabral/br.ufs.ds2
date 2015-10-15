@@ -25,7 +25,7 @@ $rails generate model ComponentesProduto idCompoe:integer idProduto:integer idIt
 
 $rails generate model Fornecedor nome:string cnpj:string cidade:string estado:string num:string endereco:string telefone:string --no-migration
 
-$rails generate model Funcionario nome:string cpf:string cidade:string estado:string num:string endereco:string telefone:string salario:float dataContratacao:date ativo:boolean turno:integer login:string senha:string nivelAcesso:integer --no-migration
+$rails generate model Funcionario nome:string cpf:string cidade:string estado:string num:string endereco:string telefone:string salario:float dataContratacao:date ativo:boolean turno:integer login:string password_digest:string nivelAcesso:integer --no-migration
 
 $rails generate model Item nome:string marca:string descricao:string quantidade:integer quantidadeMinima:integer --no-migration
 

@@ -4,12 +4,12 @@ one:
   idVende: 1
   idFornecedor: 1
   idItem: 1
-  data: 2015-06-12
+  data: 2015-09-18
   valor: 1.5
 
 two:
   idVende: 1
   idFornecedor: 1
   idItem: 1
-  data: 2015-06-12
+  data: 2015-09-18
   valor: 1.5

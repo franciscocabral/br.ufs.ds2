@@ -1,0 +1,1 @@
+json.extract! @funcionario, :id, :nome, :cpf, :cidade, :estado, :num, :endereco, :telefone, :salario, :dataContratacao, :ativo, :turno, :login, :password_digest, :nivelAcesso, :created_at, :updated_at
