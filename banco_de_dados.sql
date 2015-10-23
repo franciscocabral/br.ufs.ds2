@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `ativo` TINYINT(1) NOT NULL,
   `turno` INT NOT NULL,
   `login` VARCHAR(45) NOT NULL,
-  `password_digest` VARCHAR(45) NOT NULL,
+  `password_digest` VARCHAR(60) NOT NULL,
   `nivelAcesso` INT(1) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   UNIQUE INDEX `login_UNIQUE` (`login` ASC),
