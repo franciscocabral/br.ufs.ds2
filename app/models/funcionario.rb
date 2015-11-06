@@ -16,8 +16,10 @@ class Funcionario < ActiveRecord::Base
   has_secure_password
 
   validates_presence_of :password, :on => :create, :message => "O campo senha deve ser informado"
+  validates_presence_of :password_digest, :on => :create, :message => "O campo senha deve ser informado"
   validates_presence_of :password_confirmation, :on => :create, :message => "O campo confirmação de senha deve ser informado"
 
-  validates_length_of :password, :within => 6..20, :on => :create, :message => "O campo senha deve ter entre 6 e 20 carateres"
+  validates_presence_of :password,     :within => 6..20, :on => :create, :message => "O campo senha deve ter entre 6 e 20 carateres"
+  validates_presence_of :password_digest,     :within => 6..20, :on => :create, :message => "O campo senha deve ter entre 6 e 20 carateres"
   validates_length_of :password_confirmation, :within => 6..20, :on => :create, :message => "O campo confirmação de senha deve entre 6 e 20 caracteres"
 end

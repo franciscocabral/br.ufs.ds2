@@ -94,3 +94,24 @@
     color: red;
     background-color: #999999;
    }
+
+.logo-default{
+    margin: 1px 0px!important;
+    height: 63px;
+}
+.page-logo{
+    padding: 2px 2px 2px 2px!important;
+}
+.menu-toggler.sidebar-toggler{
+    margin: 23px 10px 0 0!important;
+}
+.page-sidebar-closed .menu-toggler.sidebar-toggler{
+    margin: 23px 15px!important;
+}
+
+.login-logo{
+    margin-top:10px !important;
+}
+.login-content{
+    margin-top:200px!important;
+}

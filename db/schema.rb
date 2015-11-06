@@ -109,12 +109,12 @@ ActiveRecord::Schema.define(version: 20150422121333) do
   add_index "vende", ["idItem"], name: "fk_Fornecedor_has_Item_Item1_idx", using: :btree
   add_index "vende", ["idVende"], name: "idVende", unique: true, using: :btree
 
-  add_foreign_key "comanda", "Funcionario", column: "idFuncionario", primary_key: "idFuncionario", name: "fk_comanda_Funcionario1", on_delete: :cascade
-  add_foreign_key "componentes_produto", "Item", column: "idItem", primary_key: "idItem", name: "fk_Produto_has_Item_Item1", on_delete: :cascade
-  add_foreign_key "componentes_produto", "Produto", column: "idProduto", primary_key: "idProduto", name: "fk_Produto_has_Item_Produto1"
-  add_foreign_key "pedido", "Produto", column: "idProduto", primary_key: "idProduto", name: "fk_Produto_has_comanda_Produto1", on_delete: :cascade
+  add_foreign_key "comanda", "funcionario", column: "idFuncionario", primary_key: "idFuncionario", name: "fk_comanda_Funcionario1", on_delete: :cascade
+  add_foreign_key "componentes_produto", "item", column: "idItem", primary_key: "idItem", name: "fk_Produto_has_Item_Item1", on_delete: :cascade
+  add_foreign_key "componentes_produto", "produto", column: "idProduto", primary_key: "idProduto", name: "fk_Produto_has_Item_Produto1"
   add_foreign_key "pedido", "comanda", column: "idcomanda", primary_key: "idcomanda", name: "fk_Produto_has_comanda_comanda1", on_delete: :cascade
   add_foreign_key "pedido", "funcionario", column: "idFuncionario", primary_key: "idFuncionario", name: "fk_Pedido_Funcionario1", on_delete: :cascade
-  add_foreign_key "vende", "Fornecedor", column: "idFornecedor", primary_key: "idFornecedor", name: "fk_Fornecedor_has_Item_Fornecedor"
-  add_foreign_key "vende", "Item", column: "idItem", primary_key: "idItem", name: "fk_Fornecedor_has_Item_Item1", on_delete: :cascade
+  add_foreign_key "pedido", "produto", column: "idProduto", primary_key: "idProduto", name: "fk_Produto_has_comanda_Produto1", on_delete: :cascade
+  add_foreign_key "vende", "fornecedor", column: "idFornecedor", primary_key: "idFornecedor", name: "fk_Fornecedor_has_Item_Fornecedor"
+  add_foreign_key "vende", "item", column: "idItem", primary_key: "idItem", name: "fk_Fornecedor_has_Item_Item1", on_delete: :cascade
 end

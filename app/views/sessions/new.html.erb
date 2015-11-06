@@ -1,20 +1,21 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :login %>
-      <br>
-      <%= f.text_field :login, class: 'form-control' %>
-      <br><br>
-      <%= f.label :password %>
-      <br>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
+<%= form_for(:session, url: login_path,class:"login-form") do |f| %>
+  <h3 class="form-title">Login</h3>
+  <div class="alert alert-danger display-hide">
+    <button class="close" data-close="alert"></button>
+			<span>
+			Enter any username and password. </span>
   </div>
-</div>
+  <div class="form-group">
+    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+    <%= f.label :login, class:'control-label visible-ie8 visible-ie9' %>
+    <%= f.text_field :login, class: 'form-control form-control-solid placeholder-no-fix', placeholder:'Usuário' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, class:'control-label visible-ie8 visible-ie9' %>
+    <%= f.password_field :password, class: 'form-control form-control-solid placeholder-no-fix', placeholder:'Senha'%>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Log in", class: "btn btn-success uppercase" %>
+  </div>
+<% end %>
