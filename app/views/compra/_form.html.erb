@@ -1,4 +1,4 @@
-<%= form_for(@vende) do |f| %>
+<%= form_for(@vende , url: vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem)) do |f| %>
   <% if @vende.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vende.errors.count, "error") %> prohibited this vende from being saved:</h2>

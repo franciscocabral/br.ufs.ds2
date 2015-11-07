@@ -22,9 +22,9 @@
         <td><%= item.descricao %></td>
         <td><%= item.quantidade %></td>
         <td><%= item.quantidadeMinima %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', item_show_path(item) %></td>
+        <td><%= link_to 'Edit', item_edit_path(item) %></td>
+        <td><%= link_to 'Destroy', item_delete_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'New Item', item_new_path %>

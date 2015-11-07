@@ -97,9 +97,10 @@ License: You must have a valid license purchased only from themeforest(the above
 							<li class="divider">
 							</li>
 							<li>
-                <a rel="nofollow" data-method="delete" href="/logout">
-                  <i class="icon-key"></i>Log out
-                </a>
+                                                            <!-- <a rel="nofollow" data-method="delete" href="/logout">
+                                                                 <i class="icon-key"></i>Log out
+                                                                 </a> -->
+                                                            <%= link_to 'Log out', logout_path, method: :delete, data: {confirm: 'Tem cereteza que deseja sair?' }%>
 							</li>
 						</ul>
                                         <% else %>
@@ -156,7 +157,7 @@ License: You must have a valid license purchased only from themeforest(the above
           </a>
         </li>
         <li>
-          <a href="/items/">
+          <a href="/compra/item_index/">
             <i class="fa fa-cube"></i>
             <span class="title">Items</span>
           </a>
@@ -175,7 +176,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </a>
         </li>
         <li>
-          <a href="/vendes/">
+          <a href="/compra/vende_index/">
             <i class="fa fa-credit-card"></i>
             <span class="title">Vendas</span>
           </a>
@@ -261,8 +262,8 @@ License: You must have a valid license purchased only from themeforest(the above
         Demo.init(); // init demo features
     });
   </script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' => true %>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

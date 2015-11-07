@@ -22,9 +22,9 @@
         <td><%= vende.idItem %></td>
         <td><%= vende.data %></td>
         <td><%= vende.valor %></td>
-        <td><%= link_to 'Show', vende %></td>
-        <td><%= link_to 'Edit', edit_vende_path(vende) %></td>
-        <td><%= link_to 'Destroy', vende, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', vende_show_path(vende.idVende, vende.idFornecedor, vende.idItem) %></td>
+        <td><%= link_to 'Edit', vende_edit_path(vende.idVende, vende.idFornecedor, vende.idItem) %></td>
+        <td><%= link_to 'Destroy', vende_show_path(vende.idVende, vende.idFornecedor, vende.idItem), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Vende', new_vende_path %>
+<%= link_to 'New Vende', vende_new_path %>
