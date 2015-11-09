@@ -1,34 +1,209 @@
-<p id="notice"><%= notice %></p>
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-red-sunglo">
+      <span class="caption-subject bold uppercase">Comanda #<%= @comanda.idcomanda %></span>
+    </div>
+    <div class="actions">
+    <a class="btn red" data-toggle="modal" href="#encerrar">
+      <i class="fa fa-times"></i>Encerrar
+    </a>
+  </div>
+  </div>
+  <div class="portlet-body">
+    <form class="form-horizontal" role="form">
+      <div class="form-body">
 
-<p>
-  <strong>Idcomanda:</strong>
-  <%= @comanda.idcomanda %>
-</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Mesa</label>
 
-<p>
-  <strong>Idfuncionario:</strong>
-  <%= @comanda.idFuncionario %>
-</p>
+              <div class="col-md-9">
+                <input type="text" readonly class="form-control" value="<%= @comanda.mesa %>"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Funcionário</label>
 
-<p>
-  <strong>Mesa:</strong>
-  <%= @comanda.mesa %>
-</p>
+              <div class="col-md-9">
+                <input type="text" readonly class="form-control" value="<%= @comanda.funcionario.nome %>"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Abertura</label>
 
-<p>
-  <strong>Dataabertura:</strong>
-  <%= @comanda.dataAbertura %>
-</p>
+              <div class="col-md-9">
+                <div class="input-icon">
+                  <i class="fa fa-clock-o"></i>
+                  <input readonly type="text" class="form-control timepicker timepicker-default" value="<%= @comanda.dataAbertura %>"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Encerramento</label>
 
-<p>
-  <strong>Dataencerramento:</strong>
-  <%= @comanda.dataEncerramento %>
-</p>
+              <div class="col-md-9">
+                <div class="input-icon">
+                  <i class="fa fa-clock-o"></i>
+                  <input readonly type="text" class="form-control timepicker timepicker-default" value="<%= @comanda.dataEncerramento %>"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <strong>Valorfinal:</strong>
-  <%= @comanda.valorFinal %>
-</p>
+      </div>
+    </form>
+  </div>
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-coffee font-red"></i>
+      <span class="caption-subject font-red bold uppercase">Pedidos (<%= @comanda.pedidos.length %>)</span>
+    </div>
+    <div class="actions">
+      <a class="btn blue" data-toggle="modal" href="#novo-pedido">
+        <i class="fa fa-plus-circle"></i>Novo Pedido
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <% if @pedido.errors.any? %>
+        <div class="alert alert-danger display-hide" style="display: block;">
+          <ul>
+            <% @pedido.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="table-scrollable">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th class="col-md-1"> #</th>
+          <th class="col-md-7"> Nome</th>
+          <th class="col-md-1"> Preço</th>
+          <th class="col-md-1"> Situação</th>
+          <th class="col-md-2"> Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+            <%
+               i = 0
+               total = 0
+               @comanda.pedidos.each do |pedido|
+                situacao = pedido.cancelado == true ? 2 : (pedido.dataFinalizacao != nil ? 1 : 0)
+                labelText = situacao == 2 ? "Cancelado" : (situacao == 0 ? "Em Espera" : "Finalizado")
+                labelSituacao = situacao == 2 ? "danger" : (situacao == 0 ? "warning" : "success")
+                i = i+1
+                if situacao != 2
+                  total += pedido.produto.valor
+                end
+            %>
+                <tr>
+                  <td> <%= i %></td>
+                  <td> <%= pedido.produto.nome %></td>
+                  <td> <%= situacao == 2 ? "-" : "R$ "+pedido.produto.valor.to_s %></td>
+                  <td> <span class="label label-sm label-<%= labelSituacao %>"><%= labelText %></span></td>
+                  <td>
+                    <%if situacao != 2%>
+                      <a href="/comandas/<%= pedido.id %>/finalizar_pedido" class="label label-sm label-success">Finalizar</a>
+                      <a href="/comandas/<%= pedido.id %>/cancelar_pedido" class="label label-sm label-danger">Cancelar</a>
+                    <% else %>
+                    -
+                    <% end %>
+                  </td>
+                </tr>
+            <% end %>
+            <tr>
+              <td> Total </td>
+              <td> </td>
+              <td> R$ <%= total %></td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
 
-<%= link_to 'Edit', edit_comanda_path(@comanda) %> |
-<%= link_to 'Back', comandas_path %>
+    <div id="novo-pedido" class="modal fade" tabindex="-1" data-width="760" style="display: none; width: 760px; margin-left: -379px; margin-top: 0px;" aria-hidden="true">
+
+      <%= form_tag(new_pedido_comanda_url, method: "post", class:'form-horizontal') do |f| %>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Novo Pedido</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="form-body">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Produto</label>
+                    <div class="col-md-9">
+                      <select type="text" name="pedido[idProduto]" class="form-control">
+                        <% produtos_array = Produto.all.map { |produto| [produto.nome, produto.idProduto] } %>
+                        <%= options_for_select(produtos_array) %>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn green" value="Adicionar"/>
+          </div>
+      <%end%>
+    </div>
+
+    <div id="encerrar" class="modal fade" tabindex="-1" data-width="760" style="display: none; width: 760px; margin-left: -379px; margin-top: 0px;" aria-hidden="true">
+
+      <%= form_tag(encerrar_comanda_path, method: "post", class:'form-horizontal') do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">Encerrar Comanda</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-body">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="col-md-3 control-label">Valor Consumido</label>
+                <div class="col-md-9">
+                  <input type="text" min="0" step="0.05" id="comanda-valor-inicial" readonly class="form-control" value="<%= total %>"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Descontos</label>
+                <div class="col-md-9">
+                  <input type="number" min="0" step="0.05" id="comanda-descontos" class="form-control" value="0"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Garçom</label>
+                <div class="col-md-9">
+                  <input type="number" min="0" step="0.05" id="comanda-garcom" class="form-control" value="0"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Valor Pago</label>
+                <div class="col-md-9">
+                  <input type="number" min="0" step="0.05" id="comanda-valor-final" readonly name="comanda[valorFinal]" class="form-control" value="<%= total %>"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn red" value="Encerrar"/>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
+

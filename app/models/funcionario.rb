@@ -1,4 +1,5 @@
 class Funcionario < ActiveRecord::Base
+  has_many :comandas, primary_key: "idFuncionario", foreign_key: "idFuncionario"
   validates_presence_of :nome, :on => :create, :message => "O campo nome deve ser informado"
   validates_presence_of :cpf, :on => :create, :message => "O campo cpf deve ser infomado"
   validates_presence_of :cidade, :on => :create, :message => "O campo cidade deve ser informado"

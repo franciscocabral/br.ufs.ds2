@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422121333) do
+ActiveRecord::Schema.define(version: 20151107183124) do
 
   create_table "comanda", id: false, force: :cascade do |t|
     t.integer  "idcomanda",        limit: 4,  null: false
     t.integer  "idFuncionario",    limit: 4,  null: false
     t.integer  "mesa",             limit: 4,  null: false
     t.datetime "dataAbertura",                null: false
-    t.datetime "dataEncerramento",            null: false
-    t.float    "valorFinal",       limit: 24, null: false
+    t.datetime "dataEncerramento"
+    t.float    "valorFinal",       limit: 24
   end
 
   add_index "comanda", ["idFuncionario"], name: "fk_comanda_Funcionario1_idx", using: :btree
