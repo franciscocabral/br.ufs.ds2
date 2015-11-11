@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Componentes Produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idcompoe</th>
+      <th>Idproduto</th>
+      <th>Iditem</th>
+      <th>Quantidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @componentes_produtos.each do |componentes_produto| %>
+      <tr>
+        <td><%= componentes_produto.idCompoe %></td>
+        <td><%= componentes_produto.idProduto %></td>
+        <td><%= componentes_produto.idItem %></td>
+        <td><%= componentes_produto.quantidade %></td>
+        <td><%= link_to 'Show', componentes_produto %></td>
+        <td><%= link_to 'Edit', edit_componentes_produto_path(componentes_produto) %></td>
+        <td><%= link_to 'Destroy', componentes_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Componentes produto', new_componentes_produto_path %>
