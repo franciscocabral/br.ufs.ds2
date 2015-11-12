@@ -1,7 +1,7 @@
 <%= form_for(@vende , url: vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem)) do |f| %>
   <% if @vende.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@vende.errors.count, "error") %> prohibited this vende from being saved:</h2>
+      <h2><%= pluralize(@vende.errors.count, "erro") %> impediram o sucesso da operacao:</h2>
 
       <ul>
       <% @vende.errors.full_messages.each do |message| %>
@@ -10,28 +10,31 @@
       </ul>
     </div>
   <% end %>
-
+  <%if(@meuFornecedor != nil)%>
+  <%=@meuFornecedor.nome%>
+  <% end %>
   <div class="field">
-    <%= f.label :idVende %><br>
-    <%= f.number_field :idVende %>
+    <%=Fornecedor%><br>
+	<%=select("post", ":fornecedor", @fornecedores.collect{|fornecedor| [fornecedor.nome]}, {include_blank: true})=%>
   </div>
   <div class="field">
-    <%= f.label :idFornecedor %><br>
-    <%= f.number_field :idFornecedor %>
-  </div>
-  <div class="field">
-    <%= f.label :idItem %><br>
-    <%= f.number_field :idItem %>
+    <%=Item%><br>
+	<%=select("post", ":item", @item.collect{|item| [item.nome]}, {include_blank: true})=%>
   </div>
   <div class="field">
     <%= f.label :data %><br>
     <%= f.date_select :data %>
   </div>
   <div class="field">
+    <%= "Quantidade de itens"%><br>
+    <%= number_field("post", "quantidadeItens", options = {min: 1}) %>
+  </div>
+  <div class="field">
     <%= f.label :valor %><br>
     <%= f.text_field :valor %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Registrar" %>
   </div>
 <% end %>

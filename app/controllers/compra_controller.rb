@@ -17,6 +17,8 @@ class CompraController < ApplicationController
   # GET /vendes/new
   def new
     @vende = Vende.new
+	@fornecedores = Fornecedor.order(:nome)
+	@item = Item.order(:nome)
   end
 
   # GET /vendes/1/edit
@@ -27,10 +29,11 @@ class CompraController < ApplicationController
   # POST /vendes
   # POST /vendes.json
   def create
-    @vende = Vende.new(vende_params)
-
+	@vende = Vende.new(vende_params)
+	@fornecedores = Fornecedor.order(:nome)
+	@item = Item.order(:nome)
     respond_to do |format|
-      if @vende.save
+	  if @vende.save
         format.html { redirect_to vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), notice: 'Vende was successfully created.' }
         format.json { render :show, status: :created, location: @vende }
       else
@@ -92,7 +95,7 @@ class CompraController < ApplicationController
   # POST /items.json
   def item_create
     @item = Item.new(item_params)
-
+	@item.quantidade = 0
     respond_to do |format|
       if @item.save
         format.html { redirect_to item_index_path, notice: 'Item was successfully created.' }
@@ -138,7 +141,7 @@ class CompraController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vende_params
-      params.require(:vende).permit(:idVende, :idFornecedor, :idItem, :data, :valor)
+      params.require(:vende).permit(:idFornecedor, :idItem, :data, :valor)
     end
 
     # Use callbacks to share common setup or constraints between actions.
