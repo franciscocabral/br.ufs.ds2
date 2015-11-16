@@ -1,6 +1,5 @@
-<h1>Editing Vende</h1>
+<h1>Modificando compra</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem) %> |
-<%= link_to 'Back', vende_index_path %>
+<%= button_to 'Voltar', vende_index_path, :class => "btn btn-default", :method => :get  %><br>

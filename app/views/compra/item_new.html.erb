@@ -1,6 +1,6 @@
-<h1>Novo Item</h1>
+<h1>Novo item</h1>
 
 <%= render 'item_form' %>
 
-<%= link_to 'Voltar aos itens', item_index_path %>
+<%= button_to 'Voltar', item_index_path, :class => "btn btn-default", :method => :get  %><br>
 

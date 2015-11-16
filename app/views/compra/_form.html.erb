@@ -1,3 +1,5 @@
+<%I18n.locale = "br"%>
+<p id="notice"><%= notice %></p>
 <%= form_for(@vende , url: vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem)) do |f| %>
   <% if @vende.errors.any? %>
     <div id="error_explanation">
@@ -10,31 +12,35 @@
       </ul>
     </div>
   <% end %>
-  <%if(@meuFornecedor != nil)%>
-  <%=@meuFornecedor.nome%>
+  <%if(@print != nil)%>
+  <%=@print%>
   <% end %>
   <div class="field">
     <%=Fornecedor%><br>
-	<%=select("post", ":fornecedor", @fornecedores.collect{|fornecedor| [fornecedor.nome]}, {include_blank: true})=%>
+	<%@sid = -1%>
+	<%=select("selecao", "fornecedor", @fornecedores.collect{|fornecedor| [fornecedor.nome, @sid = @sid+1]}, {include_blank: false})%>
   </div>
   <div class="field">
     <%=Item%><br>
-	<%=select("post", ":item", @item.collect{|item| [item.nome]}, {include_blank: true})=%>
+	<%@sid = -1%>
+	<%=select("selecao", "item", @item.collect{|item| [item.nome, @sid = @sid+1]}, {include_blank: false})=%>
   </div>
   <div class="field">
     <%= f.label :data %><br>
     <%= f.date_select :data %>
   </div>
-  <div class="field">
-    <%= "Quantidade de itens"%><br>
-    <%= number_field("post", "quantidadeItens", options = {min: 1}) %>
-  </div>
+  <% if(not @editMode) %>
+    <div class="field">
+      <%= "Quantidade de itens"%><br>
+      <%= number_field("numero", "item", options = {min: 1}) %>
+    </div>
+  <% end%>
   <div class="field">
     <%= f.label :valor %><br>
     <%= f.text_field :valor %>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "Registrar" %>
+    <%= f.submit "Salvar", :class => "btn btn-default" %>
   </div>
 <% end %>

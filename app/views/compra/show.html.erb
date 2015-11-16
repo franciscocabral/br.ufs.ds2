@@ -1,18 +1,21 @@
+﻿<h1>Detalhes de compra</h1>
+<br>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Idvende:</strong>
+  <strong>Código:</strong>
   <%= @vende.idVende %>
 </p>
 
 <p>
-  <strong>Idfornecedor:</strong>
-  <%= @vende.idFornecedor %>
+  <strong>Fornecedor:</strong>
+  <%= Fornecedor.find(@vende.idFornecedor).nome %>
 </p>
 
 <p>
-  <strong>Iditem:</strong>
-  <%= @vende.idItem %>
+  <strong>Item:</strong>
+  <%= (item = Item.find(@vende.idItem)).nome + " (" + item.marca + ")" %>
 </p>
 
 <p>
@@ -24,6 +27,8 @@
   <strong>Valor:</strong>
   <%= @vende.valor %>
 </p>
+<br>
 
-<%= link_to 'Edit', vende_edit_path(@vende.idVende, @vende.idFornecedor, @vende.idItem) %> |
-<%= link_to 'Back', vende_index_path %>
+<%= button_to 'Modificar', vende_edit_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), :class => "btn btn-default", :method => :get  %><br>
+<%= button_to 'Voltar', vende_index_path, :class => "btn btn-default", :method => :get  %><br>
+

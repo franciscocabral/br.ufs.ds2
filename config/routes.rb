@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'compra/item(/:id)', to: 'compra#item_show', as: :item_show
   get 'compra/item_new', to: 'compra#item_new', as: :item_new
   get 'compra/item/:id/edit', to: 'compra#item_edit', as: :item_edit
-  delete 'compra/item/:id', to: 'compra#item_destroy', as: :item_delete
+  get 'compra/delitem/:id', to: 'compra#item_destroy', as: :item_delete
 
   get 'compra/vende_index', to: 'compra#index', as: :vende_index
   post 'compra/vende((/:id1)(/:id2)(/:id3))', to: 'compra#create'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get 'compra/vende((/:id1)(/:id2)(/:id3))', to: 'compra#show', as: :vende_show
   get 'compra/vende_new', to: 'compra#new', as: :vende_new
   get 'compra/vende/:id1/:id2/:id3/edit', to: 'compra#edit', as: :vende_edit
-  delete 'compra/vende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
+  get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

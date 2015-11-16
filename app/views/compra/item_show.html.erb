@@ -1,29 +1,31 @@
+﻿<h1>Detalhes do item</h1>
+<br>
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="field">
   <strong>Nome:</strong>
   <%= @item.nome %>
-</p>
+</div>
 
-<p>
+<div class="field">
   <strong>Marca:</strong>
   <%= @item.marca %>
-</p>
+</div>
 
-<p>
-  <strong>Descricao:</strong>
+<div class="field">
+  <strong>Descrição:</strong>
   <%= @item.descricao %>
-</p>
+</div>
 
-<p>
+<div class="field">
   <strong>Quantidade:</strong>
   <%= @item.quantidade %>
-</p>
+</div>
 
-<p>
-  <strong>Quantidademinima:</strong>
+<div class="field">
+  <strong>Quantidade mínima:</strong>
   <%= @item.quantidadeMinima %>
-</p>
-
-<%= link_to 'Edit', item_edit_path(@item) %> |
-<%= link_to 'Back', item_index_path %>
+</div>
+<br>
+<%= button_to 'Modificar', item_edit_path(@item), :class => "btn btn-default", :method => :get  %><br>
+<%= button_to 'Voltar', item_index_path, :class => "btn btn-default", :method => :get  %><br>

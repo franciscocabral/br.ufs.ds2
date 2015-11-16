@@ -1,5 +1,6 @@
-class CompraController < ApplicationController
+﻿class CompraController < ApplicationController
   before_action :set_vende, only: [:show, :edit, :update, :destroy]
+  before_action :set_info, only: [:new, :show, :edit, :update, :create]
   before_action :set_item, only: [:item_show, :item_edit, :item_update, :item_destroy]
   
   # GET /vendes
@@ -16,25 +17,33 @@ class CompraController < ApplicationController
 
   # GET /vendes/new
   def new
+	@editMode = false
     @vende = Vende.new
-	@fornecedores = Fornecedor.order(:nome)
-	@item = Item.order(:nome)
   end
 
   # GET /vendes/1/edit
   def edit
+    @editMode = true
     @vende = Vende.find([params[:id1], params[:id2], params[:id3]])
   end
-
+  
   # POST /vendes
   # POST /vendes.json
   def create
+	if(params[:numero][:item].length <= 0)
+		problema = 'É necessário definir uma quantidade para a compra.'
+		redirect_to vende_new_path, notice: problema
+		return
+	end
 	@vende = Vende.new(vende_params)
-	@fornecedores = Fornecedor.order(:nome)
-	@item = Item.order(:nome)
-    respond_to do |format|
+	@vende.fornecedor = @fornecedores[params[:selecao][:fornecedor].to_i]
+	@vende.item = @item[params[:selecao][:item].to_i]
+	
+	respond_to do |format|
 	  if @vende.save
-        format.html { redirect_to vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), notice: 'Vende was successfully created.' }
+        @vende.item.quantidade += params[:numero][:item].to_i
+		@vende.item.save
+		format.html { redirect_to item_index_path, notice: 'A compra foi registrada com sucesso.' }
         format.json { render :show, status: :created, location: @vende }
       else
         format.html { render :new }
@@ -49,7 +58,7 @@ class CompraController < ApplicationController
     @vende = Vende.find([params[:id1], params[:id2], params[:id3]])
     respond_to do |format|
       if @vende.update(vende_params)
-        format.html { redirect_to vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), notice: 'Vende was successfully updated.' }
+        format.html { redirect_to vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), notice: 'A compra foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @vende }
       else
         format.html { render :edit }
@@ -61,10 +70,10 @@ class CompraController < ApplicationController
   # DELETE /vendes/1
   # DELETE /vendes/1.json
   def destroy
-    @vende = Vende.find([params[:id1], params[:id2], params[:id3]])
+    @vende = Vende.find([params[:id1],params[:id2],params[:id3]])
     @vende.destroy
     respond_to do |format|
-      format.html { redirect_to vende_index_path, notice: 'Vende was successfully destroyed.' }
+      format.html { redirect_to vende_index_path, notice: 'A compra foi removida com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -95,10 +104,9 @@ class CompraController < ApplicationController
   # POST /items.json
   def item_create
     @item = Item.new(item_params)
-	@item.quantidade = 0
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_index_path, notice: 'Item was successfully created.' }
+        format.html { redirect_to item_index_path, notice: 'O item foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -113,7 +121,7 @@ class CompraController < ApplicationController
     @item = Item.find(params[:id])
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to item_show_path(@item), notice: 'Item was successfully updated.' }
+        format.html { redirect_to item_show_path(@item), notice: 'O item foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -128,7 +136,7 @@ class CompraController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to item_index_path, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to item_index_path, notice: 'O item foi removido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -142,8 +150,13 @@ class CompraController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def vende_params
       params.require(:vende).permit(:idFornecedor, :idItem, :data, :valor)
-    end
-
+	end
+	
+	def set_info()
+	  @fornecedores = Fornecedor.order(:nome)
+	  @item = Item.order(:nome)
+	end
+	
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
