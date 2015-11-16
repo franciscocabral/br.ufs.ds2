@@ -13,65 +13,65 @@
 
   <div class="field">
     <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
+    <%= f.text_field :cpf, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :cidade %><br>
-    <%= f.text_field :cidade %>
+    <%= f.text_field :cidade, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
+    <%= f.text_field :estado, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :num %><br>
-    <%= f.text_field :num %>
+    <%= f.text_field :num, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :endereco %><br>
-    <%= f.text_field :endereco %>
+    <%= f.text_field :endereco, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :telefone %><br>
-    <%= f.text_field :telefone %>
+    <%= f.text_field :telefone, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :salario %><br>
-    <%= f.text_field :salario %>
+    <%= f.text_field :salario, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :dataContratacao %><br>
-    <%= f.date_select :dataContratacao %>
+    <%= f.date_select :dataContratacao, {}, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :ativo %><br>
-    <%= f.check_box :ativo %>
+    <%= f.check_box :ativo, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :turno %><br>
-    <%= f.number_field :turno %>
+    <%= f.select :turno, [["Manhã", 0], ["Tarde", 1], ["Noite", 2]], {},class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :login %><br>
-    <%= f.text_field :login %>
+    <%= f.text_field :login, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :nivelAcesso %><br>
-    <%= f.number_field :nivelAcesso %>
+    <%= f.select :nivelAcesso, [["Garçon", 0], ["cozinheiro", 1], ["Gerente", 2]], {}, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default"%>
   </div>
 <% end %>

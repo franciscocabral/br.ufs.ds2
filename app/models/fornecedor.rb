@@ -1,4 +1,6 @@
 class Fornecedor < ActiveRecord::Base
+  has_many :vende
+  
   validates_presence_of :nome, :on => :create, :message => "O campo nome deve ser informado"
   validates_presence_of :cnpj, :on => :create, :message => "O campo CNPJ deve ser informado"
   validates_presence_of :cidade, :on => :create, :message => "O campo cidade deve ser informado"
