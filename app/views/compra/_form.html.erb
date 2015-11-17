@@ -1,0 +1,46 @@
+<%I18n.locale = "br"%>
+<p id="notice"><%= notice %></p>
+<%= form_for(@vende , url: vende_show_path(@vende.idVende, @vende.idFornecedor, @vende.idItem)) do |f| %>
+  <% if @vende.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vende.errors.count, "erro") %> impediram o sucesso da operacao:</h2>
+
+      <ul>
+      <% @vende.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%if(@print != nil)%>
+  <%=@print%>
+  <% end %>
+  <div class="field">
+    <%=Fornecedor%><br>
+	<%@sid = -1%>
+	<%=select("selecao", "fornecedor", @fornecedores.collect{|fornecedor| [fornecedor.nome, @sid = @sid+1]}, {include_blank: false})%>
+  </div>
+  <div class="field">
+    <%=Item%><br>
+	<%@sid = -1%>
+	<%=select("selecao", "item", @item.collect{|item| [item.nome, @sid = @sid+1]}, {include_blank: false})=%>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <% if(not @editMode) %>
+    <div class="field">
+      <%= "Quantidade de itens"%><br>
+      <%= number_field("numero", "item", options = {min: 1}) %>
+    </div>
+  <% end%>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Salvar", :class => "btn btn-default" %>
+  </div>
+<% end %>

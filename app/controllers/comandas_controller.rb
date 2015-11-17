@@ -34,6 +34,15 @@ class ComandasController < ApplicationController
   def cancelar_pedido
     comanda = @pedido.comanda
     @pedido.cancelado = true
+
+    if !@pedido.is_finalizado
+      componentes = Produto.find(@pedido.idProduto).componentes_produtos
+      componentes.each do |componente|
+        componente.item.quantidade += componente.quantidade
+        componente.item.save
+      end
+    end
+
     @pedido.save
     respond_to do |format|
       format.html { redirect_to comanda, notice: 'Pedido cancelado com Sucesso' }
@@ -57,7 +66,7 @@ class ComandasController < ApplicationController
     allOkay = true
     componentes = Produto.find(@pedido.idProduto).componentes_produtos
     componentes.each do |componente|
-      allOkay = allOkay && (componente.quantidade >= componente.item.quantidade)
+      allOkay = allOkay && (componente.quantidade <= componente.item.quantidade)
     end
     if allOkay
       componentes.each do |componente|
@@ -67,7 +76,7 @@ class ComandasController < ApplicationController
     end
 
     respond_to do |format|
-      if @pedido.save
+      if allOkay && @pedido.save
         format.html { redirect_to @comanda, notice: 'Pedido adicionado com Sucesso' }
         format.json { render :show, status: :created, location: @comanda }
       else

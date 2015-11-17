@@ -143,7 +143,7 @@
                     <label class="col-md-3 control-label">Produto</label>
                     <div class="col-md-9">
                       <select type="text" name="pedido[idProduto]" class="form-control">
-                        <% produtos_array = Produto.all.map { |produto| [produto.nome, produto.idProduto] } %>
+                        <% produtos_array = Produto.all.map { |produto| [produto.nome.to_s()+' ('+produto.quantidade.to_s()+')', produto.idProduto] } %>
                         <%= options_for_select(produtos_array) %>
                       </select>
                     </div>

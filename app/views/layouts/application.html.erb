@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
 Version: 4.1.0
 Author: KeenThemes
@@ -121,6 +121,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END PAGE TOP -->
   </div>
   <!-- END HEADER INNER -->
+
 </div>
 <!-- END HEADER -->
 <div class="clearfix">
@@ -161,7 +162,7 @@ License: You must have a valid license purchased only from themeforest(the above
           </a>
         </li>
         <li>
-          <a href="/items/">
+          <a href="/compra/item_index/">
             <i class="fa fa-cube"></i>
             <span class="title">Items</span>
           </a>
@@ -180,7 +181,7 @@ License: You must have a valid license purchased only from themeforest(the above
           </a> -->
         </li>
         <li>
-          <a href="/vendes/">
+          <a href="/compra/vende_index/">
             <i class="fa fa-credit-card"></i>
             <span class="title">Vendas</span>
           </a>
@@ -265,16 +266,16 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
 <script src="/assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
 <script>
-  jQuery(document).ready(function () {
-    Metronic.init(); // init metronic core components
-    Layout.init(); // init current layout
-    Demo.init(); // init demo features
-    UIExtendedModals.init();
-  });
-</script>
-<script src="/comanda.js" type="text/javascript"></script>
-<%= javascript_include_tag 'application' => true %>
 
+    jQuery(document).ready(function() {
+       Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        Demo.init(); // init demo features
+    });
+  </script>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="/comanda.js" type="text/javascript"></script>
+  <%= javascript_include_tag 'application' => true %>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

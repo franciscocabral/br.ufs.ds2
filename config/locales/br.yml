@@ -1,0 +1,11 @@
+﻿br:
+  hello: "Olá mundo!"
+  time:
+    formats:
+      short: "arrrround %H'ish"
+  date:
+    month_names: [~, "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+    order:
+      - :day
+      - :month
+      - :year

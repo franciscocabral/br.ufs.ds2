@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   resources :produtos
-  resources :produtos
-  resources :vendes
   resources :pedidos
   resources :items
   resources :funcionarios
@@ -27,6 +25,23 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
+
+  #routing compra_controller.rb
+  get 'compra/item_index', to: 'compra#item_index', as: :item_index
+  post 'compra/item(/:id)', to: 'compra#item_create'
+  patch 'compra/item/:id', to: 'compra#item_update'
+  get 'compra/item(/:id)', to: 'compra#item_show', as: :item_show
+  get 'compra/item_new', to: 'compra#item_new', as: :item_new
+  get 'compra/item/:id/edit', to: 'compra#item_edit', as: :item_edit
+  get 'compra/delitem/:id', to: 'compra#item_destroy', as: :item_delete
+
+  get 'compra/vende_index', to: 'compra#index', as: :vende_index
+  post 'compra/vende((/:id1)(/:id2)(/:id3))', to: 'compra#create'
+  patch 'compra/vende/:id1/:id2/:id3', to: 'compra#update'
+  get 'compra/vende((/:id1)(/:id2)(/:id3))', to: 'compra#show', as: :vende_show
+  get 'compra/vende_new', to: 'compra#new', as: :vende_new
+  get 'compra/vende/:id1/:id2/:id3/edit', to: 'compra#edit', as: :vende_edit
+  get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
 
   # routing produto_controller.rb  
   get 'produtos/index', to: 'produtos#index', as: :index  
