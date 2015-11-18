@@ -44,13 +44,13 @@ Rails.application.routes.draw do
   get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
 
   # routing produto_controller.rb  
-  get 'produtos/index', to: 'produtos#index', as: :index  
+  get 'produtos/index', to: 'produtos#index', as: :produto_index  
   post 'produtos(/:id)', to: 'produtos#create'
   patch 'produtos/:id', to: 'produtos#update'
-  get 'produtos/new', to: 'produtos#new', as: :new
-  get 'produtos(/:id)', to: 'produtos#show', as: :show  
-  get 'produtos/:id/edit', to: 'produtos#edit', as: :edit
-  delete 'produtos/:id', to: 'produtos#destroy', as: :delete
+  get 'produtos/new', to: 'produtos#new', as: :produto_new
+  get 'produtos(/:id)', to: 'produtos#show', as: :produto_show  
+  get 'produtos/:id/edit', to: 'produtos#edit', as: :produto_edit
+  delete 'produtos/:id', to: 'produtos#destroy', as: :produto_delete
 
   get 'produto/:produto_id/componentes_index', to: 'produtos#componentes_index', as: :componentes_index
   post 'componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
