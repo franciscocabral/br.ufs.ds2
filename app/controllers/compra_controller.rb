@@ -1,4 +1,5 @@
 ﻿class CompraController < ApplicationController
+  before_action :verificar_login
   before_action :set_vende, only: [:show, :edit, :update, :destroy]
   before_action :set_info, only: [:new, :show, :edit, :update, :create]
   before_action :set_item, only: [:item_show, :item_edit, :item_update, :item_destroy]
@@ -150,6 +151,12 @@
     # Never trust parameters from the scary internet, only allow the white list through.
     def vende_params
       params.require(:vende).permit(:idFornecedor, :idItem, :data, :valor)
+	end
+	
+	def verificar_login
+	  if(not logged_in?)
+	    redirect_to login_path
+	  end
 	end
 	
 	def set_info()
