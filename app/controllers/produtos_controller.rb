@@ -17,6 +17,7 @@ class ProdutosController < ApplicationController
   def new
     @produto = Produto.new
     @componentes_produto = ComponentesProduto.new
+    @items = Item.all
   end
 
   # GET /produtos/1/edit

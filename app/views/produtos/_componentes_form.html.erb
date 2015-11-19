@@ -1,4 +1,6 @@
-<%= form_for(@componentes_produto, url: componentes_show_path(@componentes_produto.idCompoe, @componentes_produto.idProduto, @componentes_produto.idItem)) do |f| %>
+<%= form_for(@componentes_produto, remote: true, url: componentes_show_path(@componentes_produto.idCompoe, @componentes_produto.idProduto, @componentes_produto.idItem)) do |f| %>
+
+
   <% if @componentes_produto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@componentes_produto.errors.count, "error") %> prohibited this componentes_produto from being saved:</h2>
@@ -11,7 +13,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Marca</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <br>
+    <tbody>
+    
+    <% @produto.items.each do |item| %>
+     
+      <tr>
+          <td><%= item.nome %></td>
+          <td><%= item.marca %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+    <div class="actions">
+      <a class="btn green" data-toggle="modal" href="#nova-comanda">
+        <i class="fa fa-plus-circle"></i>Adicionar Item
+      </a>
+    </div>
+<!--   
+<div class="field">
     <%= f.label :idCompoe %><br>
     <%= f.number_field :idCompoe %>
   </div>
@@ -29,5 +59,60 @@
   </div>
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div> 
+-->
+                     
 <% end %>
+
+
+
+<div id="nova-comanda" class="modal fade" tabindex="-1" data-width="600" style="display: none; width: 600px; margin-left: -379px; margin-top: 0px;" aria-hidden="true">
+
+  <%= form_tag('/comandas/create', method: "post", class:'form-horizontal') do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">Lista de Itens</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-body">
+            <div class="col-md-12">
+              <div class="form-group">
+
+                <table id="tabela_de_itens" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th>Marca</th>
+                      <th>Quantidade</th>
+                    </tr>
+                  </thead>
+                  <br>
+                  <tbody>
+                  
+                  <% @items.each do |item| %>
+                   
+                    <tr>
+                        <td>
+                          <span class="checked"><input id="inlineCheckbox2" value="<%= item.id %>" type="checkbox"></span>
+                          
+                        </td>
+                        <td><%= item.nome %></td>
+                        <td><%= item.marca %></td>
+                        <td><input name="quantidade" class="form-control"/></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn red" value="Adicionar"/>
+      </div>
+  <%end%>
+</div>
