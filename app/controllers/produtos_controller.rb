@@ -16,6 +16,7 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
+    @componentes_produto = ComponentesProduto.new
   end
 
   # GET /produtos/1/edit
@@ -128,7 +129,7 @@ class ProdutosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_componentes_produto
-      @componentes_produto = ComponentesProduto.find(params[:id])
+      #@componentes_produto = ComponentesProduto.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

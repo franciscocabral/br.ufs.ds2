@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :produtos
   resources :pedidos
+  resources :items
   resources :funcionarios
   resources :fornecedors
-  resources :componentes_produtos
+  #resources :componentes_produtos
   resources :comandas do
     member do
       get 'cancelar_pedido'
@@ -20,11 +21,10 @@ Rails.application.routes.draw do
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
-#  get    'signup'  => 'users#new'
+  #get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-#  delete 'logout'  => 'sessions#destroy'
-  get 'logout'  => 'sessions#destroy'
+  get    'logout'  => 'sessions#destroy'
 
   #routing compra_controller.rb
   get 'compra/item_index', to: 'compra#item_index', as: :item_index
@@ -43,6 +43,24 @@ Rails.application.routes.draw do
   get 'compra/vende/:id1/:id2/:id3/edit', to: 'compra#edit', as: :vende_edit
   get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
 
+  # routing produto_controller.rb  
+  get 'produtos/index', to: 'produtos#index', as: :produto_index  
+  post 'produtos(/:id)', to: 'produtos#create'
+  patch 'produtos/:id', to: 'produtos#update'
+  get 'produtos/new', to: 'produtos#new', as: :produto_new
+  get 'produtos(/:id)', to: 'produtos#show', as: :produto_show  
+  get 'produtos/:id/edit', to: 'produtos#edit', as: :produto_edit
+  delete 'produtos/:id', to: 'produtos#destroy', as: :produto_delete
+
+  get 'produto/:produto_id/componentes_index', to: 'produtos#componentes_index', as: :componentes_index
+  post 'componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
+  patch 'componentes/:id1/:id2/:id3', to: 'produtos#componentes_update'
+  get 'componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_show', as: :componentes_show
+  get 'componentes_new', to: 'produtos#componentes_new', as: :componentes_new
+  get 'componentes/:id1/:id2/:id3/edit', to: 'produtos#componentes_edit', as: :componentes_edit
+  delete 'componentes/:id1/:id2/:id3', to: 'produtos#componentes_destroy', as: :componentes_delete
+ 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

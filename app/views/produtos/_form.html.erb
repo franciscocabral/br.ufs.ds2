@@ -1,4 +1,4 @@
-<%= form_for(@produto) do |f| %>
+<%= form_for(@produto, url: produto_show_path(@produto)) do |f| %>
   <% if @produto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.label :nome, :class => "col-md-3 control-label" %><br>
+    <%= f.text_field :nome, :class => "form-control"  %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :valor, :class => "col-md-3 control-label" %><br>
+    <%= f.text_field :valor, :class => "form-control"   %>
   </div>
   <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
-  </div>
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
-  </div>
+    <%= f.label :descricao,  :class => "col-md-3 control-label" %><br>
+    <%= f.text_field :descricao, :class => "form-control"   %>
+  </div>  
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit :class => "btn btn-default" %><br><br>
+  </div> 
 <% end %>

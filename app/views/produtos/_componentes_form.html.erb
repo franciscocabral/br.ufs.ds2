@@ -1,4 +1,4 @@
-<%= form_for(@componentes_produto) do |f| %>
+<%= form_for(@componentes_produto, url: componentes_show_path(@componentes_produto.idCompoe, @componentes_produto.idProduto, @componentes_produto.idItem)) do |f| %>
   <% if @componentes_produto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@componentes_produto.errors.count, "error") %> prohibited this componentes_produto from being saved:</h2>
