@@ -13,7 +13,7 @@
   # GET /vendes/1
   # GET /vendes/1.json
   def show
-    @vende = Vende.find([params[:id1], params[:id2], params[:id3]])
+    @vendes = Vende.find([params[:id1], params[:id2], params[:id3]])
   end
 
   # GET /vendes/new

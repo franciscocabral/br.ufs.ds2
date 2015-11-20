@@ -5,7 +5,7 @@ class ProdutosController < ApplicationController
   # GET /produtos
   # GET /produtos.json
   def index
-    @produtos = Produto.all
+    @produtos = Produto.all.order :nome
   end
 
   # GET /produtos/1
@@ -28,10 +28,9 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(produto_params)
-
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto was successfully created.' }
+        format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
         format.json { render :show, status: :created, location: @produto }
       else
         format.html { render :new }
@@ -45,7 +44,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto was successfully updated.' }
+        format.html { redirect_to @produto, notice: 'Produto foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @produto }
       else
         format.html { render :edit }
@@ -57,9 +56,10 @@ class ProdutosController < ApplicationController
   # DELETE /produtos/1
   # DELETE /produtos/1.json
   def destroy
+
     @produto.destroy
     respond_to do |format|
-      format.html { redirect_to produtos_url, notice: 'Produto was successfully destroyed.' }
+      format.html { redirect_to produtos_url, notice: 'Produto foi deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -94,7 +94,7 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @componentes_produto.save
-        format.html { redirect_to @componentes_produto, notice: 'Componentes produto was successfully created.' }
+        format.html { redirect_to :back, notice: 'Componente criado com sucesso.' }
         format.json { render :show, status: :created, location: @componentes_produto }
       else
         format.html { render :new }
@@ -108,7 +108,7 @@ class ProdutosController < ApplicationController
   def componentes_update
     respond_to do |format|
       if @componentes_produto.update(componentes_produto_params)
-        format.html { redirect_to @componentes_produto, notice: 'Componentes produto was successfully updated.' }
+        format.html { redirect_to @componentes_produto, notice: 'Componente foi atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @componentes_produto }
       else
         format.html { render :edit }
@@ -120,9 +120,10 @@ class ProdutosController < ApplicationController
   # DELETE /componentes_produtos/1
   # DELETE /componentes_produtos/1.json
   def componentes_destroy
+    @componentes_produto = ComponentesProduto.find(params[:id])
     @componentes_produto.destroy
     respond_to do |format|
-      format.html { redirect_to componentes_produtos_url, notice: 'Componentes produto was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Componente foi deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

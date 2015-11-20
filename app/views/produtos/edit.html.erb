@@ -2,5 +2,35 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Mostrar', @produto, :class => "btn btn-default" %> 
-<%= link_to 'Voltar', produtos_path, :class => "btn btn-default" %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Quantidade</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+    <% @produto.componentes_produtos.each do |componente| %>
+    <tr>
+      <td><%= componente.item.nome %></td>
+      <td><%= componente.item.marca %></td>
+      <td><%= componente.quantidade %></td>
+       <td align = "left"> <a href = <%= componentes_delete_path(componente)%>> <span class="glyphicon glyphicon-remove" title="Remover"> </a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div class="actions">
+    <a class="btn btn-default" data-toggle="modal" href=<%=produto_show_path(@produto)%>>
+        Mostrar
+    </a>
+  
+    <a class="btn btn-default" data-toggle="modal" href= <%=produtos_path%>>
+        Voltar
+    </a>
+</div>

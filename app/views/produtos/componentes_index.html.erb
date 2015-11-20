@@ -20,9 +20,9 @@
         <td><%= componentes_produto.idProduto %></td>
         <td><%= componentes_produto.idItem %></td>
         <td><%= componentes_produto.quantidade %></td>
-        <td><%= link_to 'Show', componentes_produto %></td>
-        <td><%= link_to 'Edit', edit_componentes_produto_path(componentes_produto) %></td>
-        <td><%= link_to 'Destroy', componentes_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', componentes_produto %></td>
+        <td><%= link_to 'Editar', edit_componentes_produto_path(componentes_produto) %></td>
+        <td><%= link_to 'Deletar', componentes_produto, method: :delete, data: { confirm: 'Você está certo?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Componentes produto', new_componentes_produto_path %>
+<%= link_to 'Novo Componente', new_componentes_produto_path %>

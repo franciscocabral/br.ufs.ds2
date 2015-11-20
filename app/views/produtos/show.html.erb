@@ -1,19 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @produto.nome %>
-</p>
+<div class="row">
+  <div class="form-group">
+    <label class="col-md-3 control-label">Nome</label>
+      <div class="col-md-9">
+        <input type="text" readonly class="form-control" value="<%= @produto.nome %>"/>
+      </div>
+  </div>
+</div>
 
-<p>
-  <strong>Valor:</strong>
-  <%= @produto.valor %>
-</p>
+<div class="row">
+  <div class="form-group">
+    <label class="col-md-3 control-label">Valor</label>
+      <div class="col-md-9">
+        <input type="text" readonly class="form-control" value="<%= @produto.valor %>"/>
+      </div>
+  </div>
+</div>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
+<div class="row">
+  <div class="form-group">
+    <label class="col-md-3 control-label">Descrição</label>
+      <div class="col-md-9">
+        <input type="text" readonly class="form-control" value="<%=  @produto.descricao %>"/>
+      </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+    <% @produto.componentes_produtos.each do |componente| %>
+    <tr>
+      <td><%= componente.item.nome %></td>
+      <td><%= componente.item.marca %></td>
+      <td><%= componente.quantidade %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="actions">
+    <a class="btn btn-default" data-toggle="modal" href=<%=produto_edit_path(@produto)%>>
+        Editar
+    </a>
+  
+    <a class="btn btn-default" data-toggle="modal" href= <%=produtos_path%>>
+        Voltar
+    </a>
+</div>

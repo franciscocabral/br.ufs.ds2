@@ -50,15 +50,15 @@ Rails.application.routes.draw do
   get 'produtos/new', to: 'produtos#new', as: :produto_new
   get 'produtos(/:id)', to: 'produtos#show', as: :produto_show  
   get 'produtos/:id/edit', to: 'produtos#edit', as: :produto_edit
-  delete 'produtos/:id', to: 'produtos#destroy', as: :produto_delete
+  get 'produtos/delproduto/:id', to: 'produtos#destroy', as: :produto_delete
 
   get 'produto/:produto_id/componentes_index', to: 'produtos#componentes_index', as: :componentes_index
-  post 'componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
-  patch 'componentes/:id1/:id2/:id3', to: 'produtos#componentes_update'
-  get 'componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_show', as: :componentes_show
-  get 'componentes_new', to: 'produtos#componentes_new', as: :componentes_new
-  get 'componentes/:id1/:id2/:id3/edit', to: 'produtos#componentes_edit', as: :componentes_edit
-  delete 'componentes/:id1/:id2/:id3', to: 'produtos#componentes_destroy', as: :componentes_delete
+  post 'produtos/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
+  patch 'produtos/componentes/:id1/:id2/:id3', to: 'produtos#componentes_update'
+  get 'produtos/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_show', as: :componentes_show
+  get 'produtos/componentes_new', to: 'produtos#componentes_new', as: :componentes_new
+  get 'produtos/componentes/:id1/:id2/:id3/edit', to: 'produtos#componentes_edit', as: :componentes_edit
+  get 'produto/componentes/delcomponente/:id', to: 'produtos#componentes_destroy', as: :componentes_delete
  
  
   # The priority is based upon order of creation: first created -> highest priority.
