@@ -1,51 +1,75 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row">
-  <div class="form-group">
-    <label class="col-md-3 control-label">Nome</label>
-      <div class="col-md-9">
-        <input type="text" readonly class="form-control" value="<%= @produto.nome %>"/>
+
+<div class="portlet-title">
+    <div class="caption">
+        <i class=" font-green-sharp"></i>
+        <span class="caption-subject font-green-sharp bold uppercase"><h3>Exibir Produto</h3> </span>
+    </div>
+</div>
+
+<div class="portlet light ">
+  <div class="portlet-body form">
+  <form role="form">
+    <div class="form-body">
+      <div class="form-group">
+        <div>
+          <label class=" control-label">Nome</label>
+          <input type="text" readonly class="form-control input-xlarge" value="<%= @produto.nome %>"/>
+        </div>
+        <br>
+        <div>
+          <label class="control-label">Valor</label>
+          <input type="text" readonly class="form-control input-xlarge" value="<%= @produto.valor %>"/>
+        </div>
+        <br>
+        <div>
+          <label class="control-label">Descrição</label>
+          <input type="text" readonly class="form-control input-xlarge" value="<%=  @produto.descricao %>"/>
+        </div>    
       </div>
+    </div>
+  </form>
   </div>
 </div>
 
-<div class="row">
-  <div class="form-group">
-    <label class="col-md-3 control-label">Valor</label>
-      <div class="col-md-9">
-        <input type="text" readonly class="form-control" value="<%= @produto.valor %>"/>
+<div class="portlet-title">
+    <div class="caption">
+        <i class=" font-green-sharp"></i>
+        <span class="caption-subject font-green-sharp bold uppercase"><h3>Exibir  Componentes</h3> </span>
+    </div>
+</div>
+
+<div class="portlet light ">
+  <div class="portlet-body form">
+  <form role="form">
+    <div class="form-body">
+      <div class="form-group">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Marca</th>
+              <th>Quantidade</th>
+            </tr>
+          </thead>
+          <br>
+          <tbody>
+            <% @produto.componentes_produtos.each do |componente| %>
+            <tr>
+              <td><%= componente.item.nome %></td>
+              <td><%= componente.item.marca %></td>
+              <td><%= componente.quantidade %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </form>
   </div>
 </div>
 
-<div class="row">
-  <div class="form-group">
-    <label class="col-md-3 control-label">Descrição</label>
-      <div class="col-md-9">
-        <input type="text" readonly class="form-control" value="<%=  @produto.descricao %>"/>
-      </div>
-  </div>
-</div>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Marca</th>
-      <th>Quantidade</th>
-    </tr>
-  </thead>
-  <br>
-  <tbody>
-    <% @produto.componentes_produtos.each do |componente| %>
-    <tr>
-      <td><%= componente.item.nome %></td>
-      <td><%= componente.item.marca %></td>
-      <td><%= componente.quantidade %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <div class="actions">
     <a class="btn btn-default" data-toggle="modal" href=<%=produto_edit_path(@produto)%>>

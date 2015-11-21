@@ -1,3 +1,4 @@
+
 <%= form_for(@componentes_produto, remote: true, url: componentes_show_path(@componentes_produto.idCompoe, @componentes_produto.idProduto, @componentes_produto.idItem)) do |f| %>
 
 
@@ -12,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-
+  
   <table class="table table-hover">
     <thead>
       <tr>
@@ -24,9 +25,9 @@
     <br>
     <tbody>
     
-    <% @produto.items.each do |item| %>
-     
-      <tr>
+    <% @items.each do |item| %>
+    
+      <tr style="display: none">
           <td><%= item.nome %></td>
           <td><%= item.marca %></td>
           <td></td>
@@ -92,11 +93,9 @@
                   <tbody>
                   
                   <% @items.each do |item| %>
-                   
-                    <tr>
                         <td>
-                          <span class="checked"><input id="inlineCheckbox2" value="<%= item.id %>" type="checkbox"></span>
-                          
+                          <span class="checked"><input id="inlineCheckbox" value="<%= item.id %>" type="checkbox"></span>
+                         
                         </td>
                         <td><%= item.nome %></td>
                         <td><%= item.marca %></td>

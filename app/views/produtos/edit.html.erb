@@ -1,28 +1,49 @@
-<h1>Editar Produto</h1>
+<div class="portlet-title">
+    <div class="caption">
+        <i class=" font-green-sharp"></i>
+        <span class="caption-subject font-green-sharp bold uppercase"><h3>Editar Produto</h3></span>
+    </div>
+</div>
 
 <%= render 'form' %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Marca</th>
-      <th>Quantidade</th>
-      <th>Remover</th>
-    </tr>
-  </thead>
-  <br>
-  <tbody>
-    <% @produto.componentes_produtos.each do |componente| %>
-    <tr>
-      <td><%= componente.item.nome %></td>
-      <td><%= componente.item.marca %></td>
-      <td><%= componente.quantidade %></td>
-       <td align = "left"> <a href = <%= componentes_delete_path(componente)%>> <span class="glyphicon glyphicon-remove" title="Remover"> </a></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="portlet-title">
+    <div class="caption">
+        <i class=" font-green-sharp"></i>
+        <span class="caption-subject font-green-sharp bold uppercase"><h3>Componentes Produto</h3></span>
+    </div>
+</div>
+<div class="portlet light ">
+  <div class="portlet-body form">
+  <form role="form">
+    <div class="form-body">
+      <div class="form-group">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Marca</th>
+              <th>Quantidade</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @produto.componentes_produtos.each do |componente| %>
+            <tr>
+              <td><%= componente.item.nome %></td>
+              <td><%= componente.item.marca %></td>
+              <td><%= componente.quantidade %></td>
+              <td align = "left"> <a href = <%= componentes_delete_path(componente)%>> <span class="glyphicon glyphicon-remove" title="Remover"> </a></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
 
 
 <div class="actions">
