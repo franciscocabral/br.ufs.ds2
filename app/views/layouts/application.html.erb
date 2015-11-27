@@ -46,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
   <!-- END THEME STYLES -->
   <link rel="shortcut icon" href="favicon.ico"/>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-
+  <%= yield :css %>
 </head>
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -276,6 +276,7 @@ License: You must have a valid license purchased only from themeforest(the above
   <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="/comanda.js" type="text/javascript"></script>
   <%= javascript_include_tag 'application' => true %>
+  <%= yield :js %>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

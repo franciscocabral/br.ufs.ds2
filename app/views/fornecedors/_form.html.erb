@@ -1,45 +1,57 @@
 <%= form_for(@fornecedor) do |f| %>
   <% if @fornecedor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
+  <div id="error_explanation">
+  <h2><%= pluralize(@fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
 
-      <ul>
-      <% @fornecedor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+    <% @fornecedor.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
   <% end %>
-
-  <div class="field">
+  </ul>
+</div>
+  <% end %>
+<div class="row">
+  <div class="col-md-6" > 
     <%= f.label :nome %><br>
     <%= f.text_field :nome, class: "form-control" %>
   </div>
-  <div class="field">
+</div>
+<div class="row">
+  <div class="col-md-2">
     <%= f.label :cnpj %><br>
     <%= f.text_field :cnpj, class: "form-control" %>
   </div>
-  <div class="field">
+</div>
+<div class="row">
+  <div class="col-md-4">
     <%= f.label :cidade %><br>
     <%= f.text_field :cidade, class: "form-control" %>
   </div>
-  <div class="field">
+
+  <div class="col-md-4">
     <%= f.label :estado %><br>
     <%= f.text_field :estado, class: "form-control" %>
   </div>
-  <div class="field">
+
+  <div class="col-md-4">
     <%= f.label :num %><br>
     <%= f.text_field :num, class: "form-control" %>
   </div>
-  <div class="field">
+</div>
+<div class="row">
+  <div class="col-md-6">
     <%= f.label :endereco %><br>
     <%= f.text_field :endereco, class: "form-control" %>
   </div>
-  <div class="field">
+</div>
+<div class="row">
+  <div class="col-md-2">
     <%= f.label :telefone %><br>
     <%= f.text_field :telefone, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-default" %>
-  </div>
+</div>
+<br/>
+<div class="form-actions">
+  <%= f.submit class: "btn green" %>
+</div>
 <% end %>
