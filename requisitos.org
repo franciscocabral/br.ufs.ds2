@@ -1,0 +1,101 @@
+#+TITLE: Mapeamento de requisitos.
+#+AUTHOR: Florêncio Natan dos Santos Gama.
+#+DATE: 27/11/2015
+
+* Requisitos funcionais [26/39][66%]
+
+  - [X] Inclusão de fornecedores.
+        O sistema deve efetuar o cadastro dos fornecedores.
+  - [X] Alteração de fornecedores.
+        O sistema deve efetuar a alteração dos dados cadastrais de fornecedores.
+  - [X] Exclusão de fornecedores.
+      O sistema deve efetuar a exclusão de fornecedores.
+  - [ ] Consulta de fornecedores.
+        O sistema deve efetuar a consulta dos dados dos fornecedores.
+  - [X] Listagem de fornecedores.
+      O sistema deve efetuar a listagem dos dados dos fornecedores.
+  - [ ] Geração de relatórios de itens por fornecedor.
+      O sistema deve efetuar a geração de relatórios de itens por fornecedor.
+  - [X] Inclusão dos itens.
+      O sistema deve efetuar a inclusão dos dados dos itens fornecidos para o restaurante.
+  - [X] Alteração de itens.
+        O sistema deve efetuar a alteração dos dados dos itens fornecidos para o restaurante.
+  - [X] Exclusão de itens.
+      O sistema deve efetuar a exclusão dos itens fornecidos para o restaurante.
+  - [ ] Consultar de itens.
+      O sistema deve efetuar a consulta dos dados dos itens.
+  - [X] Listagem de itens.
+      O sistema deve efetuar a listagem de itens por fornecedor.
+  - [X] Aviso de quantidade de intens abaixo do limite delimitado.
+      O sistema deve informar quando a quantidade de um item estiver abaixo do valor mínimo definido pelo gerente.
+  - [ ] Geração de relatório de Itens em falta.
+      O sistema deve efetuar geração de relatórios dos itens que estão em falta, ou seja, aqueles que a quantidade é igual a zero.
+  - [X] Inclusão de comandas.
+      O sistema deve efetuar a inclusão de comandas, incluindo a hora de abertura.
+  - [X] Associar comanda a um funcionário.
+      O sistema deve associar uma comanda a um funcionário responsável.
+  - [X] Encerramento de comandas.
+        O sistema deve efetuar o encerramento de comandas, incluindo a hora de encerramento.
+  - [X] Alteração de comandas.
+      O sistema deve efetuar a alteração de comandas.
+  - [X] Listagem de comandas ativas.
+      O sistema deve efetuar a listagem de comandas que não possuem hora de encerramento.
+  - [X] Impressão de comanda.
+      O sistema deve efetuar a impressão da comanda.
+  - [X] Consulta informações dos pedidos da Comandas.
+      O sistema deve permitir a consulta de informações dos pedidos da comanda.
+  - [X] Inclusão de pedido de Produto na comanda.
+      O sistema deve efetuar a inclusão do pedido, incluindo a hora inicial no pedido.
+  - [ ] Entrega do pedido de Produto.
+      O sistema deve efetuar inclusão da hora final no pedido.
+  - [X] Cancelamento de pedidos.
+      O sistema deve permitir o cancelamento de pedidos.
+  - [X] Informações de pedido.
+        O sistema deve permitir a consulta das informações dos pedidos.
+  - [ ] Opções de pagamento.
+      O sistema deverá informar sobre as opções de pagamento aceitas.
+  - [X] Inclusão de produto.
+      O sistema deve efetuar o cadastro do produto.
+  - [X] Alteração de produto.
+        O sistema deve efetuar a alteração do produto.
+  - [X] Exclusão de produto.
+        O sistema deve efetuar a exclusão do produto.
+  - [ ] Consulta de produto.
+      O sistema deve efetuar a consulta de informações do produto.
+  - [X] Geração de Lista de Itens por Produto.
+        O sistema deve efetuar a geração da lista de itens que compoem um produto.
+  - [ ] Validação do produto a partir dos itens.
+        O sistema deve efetuar verificação da possibilidade de produção do produto a partir dos itens.
+  - [X] Inclusão de Funcionários.
+        O sistema deve efetuar o cadastro do funcionário.
+  - [X] Alteração de Funcionários.
+      O sistema deve efetuar a alteração do funcionário.
+  - [ ] Demissão de Funcionários.
+      O sistema deve efetuar a demissão do funcionário.
+  - [ ] Consulta de Funcionários.
+      O sistema deve efetuar consulta de funcionário.
+  - [X] Listagem de Funcionários
+      O sistema deve efetuar listagem dos dados do funcionário.
+  - [ ] Geração de relatórios das comandas encerradas.
+        O sistema deve efetuar a geração de relatórios contendo as comandas encerradas do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
+  - [ ] Geração de relatórios de despesas.
+        O Sistema deve efetuar a geração de relatórios contendo as despesas do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
+  - [ ] Geração de relatórios da arrecadação líquida.
+        O Sistema deve efetuar a geração de relatórios contendo a arrecadação liquida do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
+
+* Requitos não funcionais [0/10][0%]
+
+** Por mim marca tudo como feito, eu realmente não sei como ficariam essas
+   repostas num sistema web.
+  
+- [ ] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos itens em, no máximo, 6 segundos, em 90% dos casos.
+- [ ] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos fornecedores em no máximo 6 segundos, em 90% dos casos.
+- [ ] O sistema deve processar a alteração de dados relativos a
+ fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
+- [ ] O sistema deve processar a inclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
+- [ ] O sistema deve processar a exclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
+- [ ] O sistema deve gerar relatórios em, no máximo, 6 segundos, em 90% dos casos.
+- [ ] O sistema deve retornar o resultado de uma consulta ao sistema em no máximo 6s em 90% dos casos.
+- [ ] A listagem de itens fora da validade referente a RF14 deve ser realizada em no máximo 10 segundos em 90% dos casos.
+- [ ] A listagem com os itens referente a RF9 deve ser realizada em no máximo 10 segundos em 90% dos casos.
+- [ ] O relatorio de despesas do restaurante referente a RF11 deve ser realizada em no máximo 10 segundos em 90% dos casos.
