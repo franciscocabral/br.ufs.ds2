@@ -37,3 +37,9 @@
 
 <%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
 <%= link_to 'Back', fornecedors_path %>
+
+<h1>Itens desse Fornecedor:</h1>
+<%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+
+<%= link_to 'Gerar relatorio', fornecedors_relatorio_path(@fornecedor) %>
+

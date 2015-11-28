@@ -1,0 +1,21 @@
+<% content_for :js do%>
+  <%= javascript_tag do %>
+    function printDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var originalContents = document.body.innerHTML;
+
+      document.body.innerHTML = printContents;
+
+      window.print();
+
+      document.body.innerHTML = originalContents;
+    }
+  <% end %>
+<% end %>
+
+<h1>Itens do fornecedor: <%= @fornecedor.nome %> </h1>
+
+<%= link_to 'Imprimir', '',onclick: 'printDiv("print")' %>
+<div id="print">
+<%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+</div>

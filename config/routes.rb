@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'fornecedor/search' => 'fornecedors#search'
   post 'fornecedor/search' => 'fornecedors#search', as: :fornecedors_search
+  get 'fornecedor/relatorio/:id' => 'fornecedors#relatorio', as: :fornecedors_relatorio
 
   get 'funcionario/search' => 'funcionarios#search'
   post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search

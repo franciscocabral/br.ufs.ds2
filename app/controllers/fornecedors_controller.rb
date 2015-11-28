@@ -1,5 +1,5 @@
 class FornecedorsController < ApplicationController
-  before_action :set_fornecedor, only: [:show, :edit, :update, :destroy]
+  before_action :set_fornecedor, only: [:show, :edit, :update, :destroy, :relatorio]
 
   # GET /fornecedors
   # GET /fornecedors.json
@@ -19,6 +19,10 @@ class FornecedorsController < ApplicationController
 
   # GET /fornecedors/1/edit
   def edit
+  end
+
+  def relatorio
+    
   end
 
   def search
