@@ -3,37 +3,11 @@
 <%= button_to "Registrar compra de Itens", vende_new_path, :class => "btn green", :method => :get  %><br>
 <%= button_to "Listar compras de itens", vende_index_path, :class => "btn btn-default", :method => :get  %><br>
 <%= button_to "Consulta os Itens pelo nome", item_search_path, :class => "btn green", :method => :get  %><br>
+<%= button_to "Relatorio dos Itens em falta", itens_falta_relatorio_path, :class => "btn green", :method => :get  %><br>
 
 <h1>Lista de Itens</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-	  <th>Nome</th>
-      <th>Marca</th>
-      <th>Quantidade</th>
-      <th>Alerta</th>
-      <th>Opções</th>
-	  <th colspan="3"></th>
-    </tr>
-  </thead>
-  <br>
-  <tbody>
-	
-	<% @items.each do |item| %>
-	 
-	  <tr>
-        <td><%= item.nome %></td>
-        <td><%= item.marca %></td>
-        <td><%= item.quantidade %></td>
-        <td align = "center">
-		  <% if(item.quantidade <= item.quantidadeMinima) %><span class="glyphicon glyphicon-exclamation-sign" title="A quantidade de itens esta baixa"></span><% end %>
-		</td>
-        <td align = "right"> <a href = <%= item_show_path(item)%>> <span class="glyphicon glyphicon-log-in" title="Detalhes"> </a></td>
-        <td align = "center"> <a href = <%= item_edit_path(item)%>> <span class="glyphicon glyphicon-edit" title="Modificar"> </a></td>
-        <td align = "center"> <a href = <%= item_delete_path(item)%>> <span class="glyphicon glyphicon-remove" title="Remover"> </a></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<%= render partial: 'item_table', locals: {items: @items } %>
+
 <br>
 <br>

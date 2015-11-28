@@ -2,7 +2,7 @@
 #+AUTHOR: Florêncio Natan dos Santos Gama.
 #+DATE: 27/11/2015
 
-* Requisitos funcionais [31/39][79%]
+* Requisitos funcionais [32/39][82%]
 
   - [X] Inclusão de fornecedores.
         O sistema deve efetuar o cadastro dos fornecedores.
@@ -28,7 +28,7 @@
       O sistema deve efetuar a listagem de itens por fornecedor.
   - [X] Aviso de quantidade de intens abaixo do limite delimitado.
       O sistema deve informar quando a quantidade de um item estiver abaixo do valor mínimo definido pelo gerente.
-  - [ ] Geração de relatório de Itens em falta.
+  - [X] Geração de relatório de Itens em falta.
       O sistema deve efetuar geração de relatórios dos itens que estão em falta, ou seja, aqueles que a quantidade é igual a zero.
   - [X] Inclusão de comandas.
       O sistema deve efetuar a inclusão de comandas, incluindo a hora de abertura.

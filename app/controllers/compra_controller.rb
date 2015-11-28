@@ -115,6 +115,10 @@
     end
   end
 
+  def relatorio_itens_falta
+    @items = Item.where("quantidade = 0") 
+  end
+
   # POST /items
   # POST /items.json
   def item_create

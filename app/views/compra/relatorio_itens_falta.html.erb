@@ -1,0 +1,51 @@
+<% content_for :js do%>
+  <%= javascript_tag do %>
+    function printDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var originalContents = document.body.innerHTML;
+
+      document.body.innerHTML = printContents;
+
+      window.print();
+
+      document.body.innerHTML = originalContents;
+    }
+  <% end %>
+<% end %>
+
+<h1>Itens em falta</h1>
+
+<%= link_to 'Imprimir', '',onclick: 'printDiv("print")' %>
+<div id="print">
+<table class="table table-hover">
+  <thead>
+    <tr>
+	  <th>Nome</th>
+      <th>Marca</th>
+      <th>Quantidade</th>
+      <th>Alerta</th>
+      <!--     <th>Opções</th> -->
+	  <th colspan="3"></th>
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+	
+	<% @items.each do |item| %>
+	 
+	  <tr>
+        <td><%= item.nome %></td>
+        <td><%= item.marca %></td>
+        <td><%= item.quantidade %></td>
+        <td align = "center">
+		  <% if(item.quantidade <= item.quantidadeMinima) %><span class="glyphicon glyphicon-exclamation-sign" title="A quantidade de itens esta baixa"></span><% end %>
+		</td>
+<!--        <td align = "right"> <a href = <%= item_show_path(item)%>> <span class="glyphicon glyphicon-log-in" title="Detalhes"> </a></td>
+        <td align = "center"> <a href = <%= item_edit_path(item)%>> <span class="glyphicon glyphicon-edit" title="Modificar"> </a></td>
+        <td align = "center"> <a href = <%= item_delete_path(item)%>> <span class="glyphicon glyphicon-remove" title="Remover"> </a></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
