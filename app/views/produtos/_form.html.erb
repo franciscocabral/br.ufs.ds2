@@ -30,15 +30,136 @@
           <%= f.label :descricao,  :class => "control-label" %><br>
           <%= f.text_field :descricao, :class => "form-control  input-xlarge"   %>
         </div>  
+        <br>
+
+        <%= form_for(@componentes_produto, remote: true, url: componentes_show_path(@componentes_produto.idCompoe, @componentes_produto.idProduto, @componentes_produto.idItem)) do |f| %>
+
+
+          <% if @componentes_produto.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@componentes_produto.errors.count, "error") %> prohibited this componentes_produto from being saved:</h2>
+
+              <ul>
+              <% @componentes_produto.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
+          <table id="tabela-selecionados" class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width: 130px;">Nome</th>
+                <th style="width: 130px;">Marca</th>
+                <th style="width: 70px;">Quantidade</th>
+                <th style="width: 70px;"><th>
+              </tr>
+            </thead>
+            <br>
+            <tbody>
+            
+            <% @items.each do |item| %>
+            
+              <tr style="display: none">
+                  <td><%= item.nome %></td>
+                  <td><%= item.marca %></td>
+                  <td></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+            <div class="actions">
+              <a class="btn green" data-toggle="modal" href="#nova-comanda">
+                <i class="fa fa-plus-circle"></i>Adicionar Item
+              </a>
+            </div>
+        <!--   
+        <div class="field">
+            <%= f.label :idCompoe %><br>
+            <%= f.number_field :idCompoe %>
+          </div>
+          <div class="field">
+            <%= f.label :idProduto %><br>
+            <%= f.number_field :idProduto %>
+          </div>
+          <div class="field">
+            <%= f.label :idItem %><br>
+            <%= f.number_field :idItem %>
+          </div>
+          <div class="field">
+            <%= f.label :quantidade %><br>
+            <%= f.number_field :quantidade %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div> 
+        -->                     
+        <% end %>
         <br><br>
+
+
         <div class="actions">
-          <%= f.submit  :class => "btn green" %><br>
+          <%= f.submit "Cadastrar Produto", :class => "btn green"%><br>
         </div> 
       <hr> 
       </div>
     </div>
   </form>
+
   </div>
 </div>
 
 <% end %>
+
+
+
+
+<div id="nova-comanda" class="modal fade" tabindex="-1" data-width="600" style="display: none; width: 600px; margin-left: -379px; margin-top: 0px;" aria-hidden="true">
+
+  <%= form_tag('/produtos/create', method: "post", class:'form-horizontal') do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">Lista de Itens</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-body">
+            <div class="col-md-12">
+              <div class="form-group">
+
+                <table id="lista-de-itens" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th>Marca</th>
+                      <th>Quantidade</th>
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                  <% @items.each do |item| %>
+                      <tr>
+                        <td>
+                          <input type="checkbox" value="<%= item.id %>">                         
+                        </td>
+                        <td><%= item.nome %></td>
+                        <td><%= item.marca %></td>
+                        <td><input type="number" min="0" name="quantidade" class="form-control"/></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn red" onclick="pdtListarItensSelecionados()" aria-hidden="true" data-dismiss="modal" value="Adicionar"/>
+      </div>
+  <%end%>
+</div>
+

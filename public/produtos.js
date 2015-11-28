@@ -13,9 +13,12 @@ function pdtListarItensSelecionados() {
         var input = span.childNodes[0];
 
         if (input.checked) {
-            if (linha.childNodes[7].childNodes[0].value !== "0") {
+            if (linha.childNodes[7].childNodes[0].value === "0" || linha.childNodes[7].childNodes[0].value === "") {
+                alert("Voce precisa definir a quantidade do item: " + linha.childNodes[3].textContent);
+                break;
+            } else {
                 var itemAtual = new pdtItem(
-                    coluna.childNodes[0].value,             // Id
+                    input.value,             // Id
                     linha.childNodes[3].textContent,        // Nome
                     linha.childNodes[5].textContent,        // Marca
                     linha.childNodes[7].childNodes[0].value // Quantidade
@@ -27,8 +30,8 @@ function pdtListarItensSelecionados() {
                 } else {
                     var cadastrado = false;
                     for (var j =0; j < pdtItensSelecionados.length;j++){
-                        if (pdtItensSelecionados[j].id == itemAtual.id) {
-                            pdtItensSelecionados[j].quantidade = itemAtual.quantidade;
+                        if (pdtItensSelecionados[j].id === itemAtual.id) {
+                            pdtItensSelecionados[j].setQuantidade(itemAtual.quantidade);
                             cadastrado = true;
                             break;
                         }
@@ -37,11 +40,10 @@ function pdtListarItensSelecionados() {
                         pdtItensSelecionados.push(itemAtual);
                     }
                 }
-            } else {
-                alert("Voce precisa colocar a quantidade dos itens selecionados")
             }
         }
     }
+
     while (tabelaDeItensSelecionados.rows.length > 1) {
         document.getElementById('tabela-selecionados').deleteRow(1);
     }
@@ -64,12 +66,15 @@ var pdtItem = function(id, nome, marca,quantidade) {
 
     this.getLinhaDaTabela = function() {
         var linha = "<tr>";
-        linha += "<td>" + nome + "</td>";
-        linha += "<td>" + marca + "</td>";
-        linha += "<td>" + quantidade + "</td>";
+        linha += "<td>" + this.nome + "</td>";
+        linha += "<td>" + this.marca + "</td>";
+        linha += "<td>" + this.quantidade + "</td>";
         linha += "<td> <input type=\"button\" value=\"Excluir\" class=\"btn red\" onClick=\"pdtRemoverItem(this.parentNode.parentNode.rowIndex)\" /></td>";
         linha += "</tr>";
         return linha;
     }
 
+    this.setQuantidade = function(qtd){
+        this.quantidade = qtd;
+    }
 }
