@@ -2,7 +2,7 @@
 #+AUTHOR: Florêncio Natan dos Santos Gama.
 #+DATE: 27/11/2015
 
-* Requisitos funcionais [32/39][82%]
+* Requisitos funcionais [33/39][84%]
 
   - [X] Inclusão de fornecedores.
         O sistema deve efetuar o cadastro dos fornecedores.
@@ -46,7 +46,7 @@
       O sistema deve permitir a consulta de informações dos pedidos da comanda.
   - [X] Inclusão de pedido de Produto na comanda.
       O sistema deve efetuar a inclusão do pedido, incluindo a hora inicial no pedido.
-  - [ ] Entrega do pedido de Produto.
+  - [X] Entrega do pedido de Produto.
       O sistema deve efetuar inclusão da hora final no pedido.
   - [X] Cancelamento de pedidos.
       O sistema deve permitir o cancelamento de pedidos.

@@ -1,21 +1,29 @@
 <% content_for :js do%>
   <%= javascript_tag do %>
-    function printDiv(divName) {
-      var printContents = document.getElementById(divName).innerHTML;
-      var originalContents = document.body.innerHTML;
+  function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
 
-      document.body.innerHTML = printContents;
+    document.body.innerHTML = printContents;
 
-      window.print();
+    window.print();
 
-      document.body.innerHTML = originalContents;
-    }
+    document.body.innerHTML = originalContents;
+  }
   <% end %>
 <% end %>
 
-<h1>Itens do fornecedor: <%= @fornecedor.nome %> </h1>
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Relatorio do fornecedor: <%= @fornecedor.nome %></span>
+    </div>
+  </div>
+  <div class="portlet-body">
 
-<%= link_to 'Imprimir', '',onclick: 'printDiv("print")' %>
-<div id="print">
-<%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+    <%= link_to 'Imprimir', '',onclick: 'printDiv("print")' %>
+    <div id="print">
+      <%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+    </div>
+  </div>
 </div>

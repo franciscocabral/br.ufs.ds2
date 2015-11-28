@@ -1,45 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Exibindo fornecedor: <%= @fornecedor.nome %></span>
+    </div>
+  </div>
+  <div class="portlet-body">
 
-<p>
-  <strong>Nome:</strong>
-  <%= @fornecedor.nome %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @fornecedor.cnpj %>
-</p>
+    <p>
+    <strong>Nome:</strong>
+    <%= @fornecedor.nome %>
+    </p>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @fornecedor.cidade %>
-</p>
+    <p>
+    <strong>Cnpj:</strong>
+    <%= @fornecedor.cnpj %>
+    </p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @fornecedor.estado %>
-</p>
+    <p>
+    <strong>Cidade:</strong>
+    <%= @fornecedor.cidade %>
+    </p>
 
-<p>
-  <strong>Num:</strong>
-  <%= @fornecedor.num %>
-</p>
+    <p>
+    <strong>Estado:</strong>
+    <%= @fornecedor.estado %>
+    </p>
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @fornecedor.endereco %>
-</p>
+    <p>
+    <strong>Num:</strong>
+    <%= @fornecedor.num %>
+    </p>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @fornecedor.telefone %>
-</p>
+    <p>
+    <strong>Endereco:</strong>
+    <%= @fornecedor.endereco %>
+    </p>
 
-<%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
-<%= link_to 'Back', fornecedors_path %>
+    <p>
+    <strong>Telefone:</strong>
+    <%= @fornecedor.telefone %>
+    </p>
 
-<h1>Itens desse Fornecedor:</h1>
-<%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+    <%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
+    <%= link_to 'Back', fornecedors_path %>
+  </div>
+  <br/><br/>
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Itens desse fornecedor</span>
+    </div>
+  </div>
 
-<%= link_to 'Gerar relatorio', fornecedors_relatorio_path(@fornecedor) %>
+  <div class="portlet-body">
 
+    <%= render partial: 'list_items.html.erb', locals: {items: @fornecedor.items} %>
+
+    <%= link_to 'Gerar relatorio', fornecedors_relatorio_path(@fornecedor) %>
+  </div>
+</div>

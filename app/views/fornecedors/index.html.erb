@@ -1,12 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Fornecedors</h1>
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Lista de Fornecedores</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <%= render partial: 'table', locals: {fornecedors: @fornecedors } %>
 
-<%= render partial: 'table', locals: {fornecedors: @fornecedors } %>
+    <br>
 
-<br>
-
-<%= link_to new_fornecedor_path, class: "btn green" do %>
-<i class="fa fa-plus-circle"></i>
-New Fornecedor
-<% end %>
+    <%= link_to new_fornecedor_path, class: "btn green" do %>
+      <i class="fa fa-plus-circle"></i>
+    New Fornecedor
+  <% end %>
+  </div>
+</div>
