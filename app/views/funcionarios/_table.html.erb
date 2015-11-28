@@ -40,8 +40,9 @@
         <td><%= link_to edit_funcionario_path(funcionario) do %>
           <span class="glyphicon glyphicon-edit" title="Modificar">
         <% end %></td>
-        <td><%= link_to funcionario, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-remove" title="Remover">
+        <td><%= link_to funcionarios_demitir_path(funcionario), method: :get,
+            data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-remove" title="Demitir">
         <% end %></td>
       </tr>
     <% end %>

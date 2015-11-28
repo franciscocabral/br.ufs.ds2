@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'funcionario/search' => 'funcionarios#search'
   post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search
+  get 'funcionario/demitir/:id' => 'funcionarios#demitir', as: :funcionarios_demitir
 
   root                'static_pages#home'
   get    'home'    => 'static_pages#home'

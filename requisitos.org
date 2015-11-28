@@ -2,7 +2,7 @@
 #+AUTHOR: Florêncio Natan dos Santos Gama.
 #+DATE: 27/11/2015
 
-* Requisitos funcionais [28/39][71%]
+* Requisitos funcionais [29/39][74%]
 
   - [X] Inclusão de fornecedores.
         O sistema deve efetuar o cadastro dos fornecedores.
@@ -70,7 +70,7 @@
         O sistema deve efetuar o cadastro do funcionário.
   - [X] Alteração de Funcionários.
       O sistema deve efetuar a alteração do funcionário.
-  - [ ] Demissão de Funcionários.
+  - [X] Demissão de Funcionários.
       O sistema deve efetuar a demissão do funcionário.
   - [X] Consulta de Funcionários.
       O sistema deve efetuar consulta de funcionário.

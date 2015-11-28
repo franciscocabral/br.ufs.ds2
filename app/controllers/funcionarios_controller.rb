@@ -21,6 +21,20 @@ class FuncionariosController < ApplicationController
   def edit
   end
 
+  def demitir
+    @funcionario = Funcionario.find(params[:id])
+    @funcionario.ativo = false
+    respond_to do |format|
+      if @funcionario.update(@funcionario.attributes)
+        format.html { redirect_to @funcionario, notice: 'funcionario was successfully fired.' }
+        format.json { render :show, status: :ok, location: @funcionario }
+      else
+        format.html { render :edit }
+        format.json { render json: @funcionario.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def search
     if (params[funcionarios_search_path].nil? ||
         params[funcionarios_search_path][:nome].empty?)
@@ -56,7 +70,7 @@ class FuncionariosController < ApplicationController
   def update
     respond_to do |format|
       if @funcionario.update(funcionario_params)
-        format.html { redirect_to @funcionario, notice: 'Funcionario was successfully updated.' }
+        format.html { redirect_to @funcionario, notice: 'funcionario was successfully updated.' }
         format.json { render :show, status: :ok, location: @funcionario }
       else
         format.html { render :edit }
