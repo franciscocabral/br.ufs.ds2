@@ -21,6 +21,20 @@ class FornecedorsController < ApplicationController
   def edit
   end
 
+  def search
+    if (params[fornecedors_search_path].nil? ||
+        params[fornecedors_search_path][:nome].empty?)
+      nome = nil
+    else
+      nome = params[fornecedors_search_path][:nome]
+    end
+    if nome != nil
+      @fornecedors = Fornecedor.where("nome like '#{nome}'")
+    else
+      @fornecedors = Fornecedor.all
+    end
+  end
+
   # POST /fornecedors
   # POST /fornecedors.json
   def create

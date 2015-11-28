@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   post 'comandas/create'
   get 'sessions/new'
 
+  get 'fornecedor/search' => 'fornecedors#search'
+  post 'fornecedor/search' => 'fornecedors#search', as: :fornecedors_search
+
+  get 'funcionario/search' => 'funcionarios#search'
+  post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search
+
   root                'static_pages#home'
   get    'home'    => 'static_pages#home'
   get    'help'    => 'static_pages#help'
@@ -43,12 +49,12 @@ Rails.application.routes.draw do
   get 'compra/vende/:id1/:id2/:id3/edit', to: 'compra#edit', as: :vende_edit
   get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
 
-  # routing produto_controller.rb  
-  get 'produtos/index', to: 'produtos#index', as: :produto_index  
+  # routing produto_controller.rb
+  get 'produtos/index', to: 'produtos#index', as: :produto_index
   post 'produtos(/:id)', to: 'produtos#create'
   patch 'produtos/:id', to: 'produtos#update'
   get 'produtos/new', to: 'produtos#new', as: :produto_new
-  get 'produtos(/:id)', to: 'produtos#show', as: :produto_show  
+  get 'produtos(/:id)', to: 'produtos#show', as: :produto_show
   get 'produtos/:id/edit', to: 'produtos#edit', as: :produto_edit
   get 'produtos/delproduto/:id', to: 'produtos#destroy', as: :produto_delete
 
@@ -59,8 +65,8 @@ Rails.application.routes.draw do
   get 'produtos/componentes_new', to: 'produtos#componentes_new', as: :componentes_new
   get 'produtos/componentes/:id1/:id2/:id3/edit', to: 'produtos#componentes_edit', as: :componentes_edit
   get 'produto/componentes/delcomponente/:id', to: 'produtos#componentes_destroy', as: :componentes_delete
- 
- 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

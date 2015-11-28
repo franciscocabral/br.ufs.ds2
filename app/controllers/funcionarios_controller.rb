@@ -21,6 +21,20 @@ class FuncionariosController < ApplicationController
   def edit
   end
 
+  def search
+    if (params[funcionarios_search_path].nil? ||
+        params[funcionarios_search_path][:nome].empty?)
+      nome = nil
+    else
+      nome = params[funcionarios_search_path][:nome]
+    end
+    if nome != nil
+      @funcionarios = Funcionario.where("nome like '#{nome}'")
+    else
+      @funcionarios = Funcionario.all
+    end
+  end
+
   # POST /funcionarios
   # POST /funcionarios.json
   def create

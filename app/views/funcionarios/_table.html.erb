@@ -1,0 +1,49 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Num</th>
+      <th>Endereco</th>
+      <th>Telefone</th>
+      <th>Salario</th>
+      <th>Datacontratacao</th>
+      <th>Ativo</th>
+      <th>Turno</th>
+      <th>Login</th>
+      <th>Nivelacesso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.cpf %></td>
+        <td><%= funcionario.cidade %></td>
+        <td><%= funcionario.estado %></td>
+        <td><%= funcionario.num %></td>
+        <td><%= funcionario.endereco %></td>
+        <td><%= funcionario.telefone %></td>
+        <td><%= funcionario.salario %></td>
+        <td><%= funcionario.dataContratacao %></td>
+        <td><%= funcionario.ativo %></td>
+        <td><%= funcionario.turno %></td>
+        <td><%= funcionario.login %></td>
+        <td><%= funcionario.nivelAcesso %></td>
+        <td><%= link_to funcionario do %>
+          <span class="glyphicon glyphicon-log-in" title="Detalhes">
+        <% end %></td>
+        <td><%= link_to edit_funcionario_path(funcionario) do %>
+          <span class="glyphicon glyphicon-edit" title="Modificar">
+        <% end %></td>
+        <td><%= link_to funcionario, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-remove" title="Remover">
+        <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
