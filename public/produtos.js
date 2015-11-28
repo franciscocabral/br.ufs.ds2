@@ -1,9 +1,9 @@
 var pdtItensSelecionados = [];
+var tabelaDeItens = document.getElementById("lista-de-itens");
+var tabelaDeItensSelecionados = document.getElementById("tabela-selecionados");
 
 function pdtListarItensSelecionados() {
-    var tabelaDeItens = document.getElementById("lista-de-itens");
-    var tabelaDeItensSelecionados = document.getElementById("tabela-selecionados");
-
+    
     var tamanho = tabelaDeItens.rows.length;
     for (var i = 1; i < tamanho; i++) {
         var linha = tabelaDeItens.rows[i];
@@ -51,10 +51,15 @@ function pdtListarItensSelecionados() {
         tabelaDeItensSelecionados.innerHTML += item.getLinhaDaTabela();
     }
 
+    $('#nova-comanda').modal('hide');
+
 }
 
 function pdtRemoverItem(indice) {
-    document.getElementById('tabela-selecionados').deleteRow(indice)
+    tabelaDeItensSelecionados.deleteRow(indice);
+    for (var row of tabelaDeItens.rows) {
+        alert(row[0]);
+    }
 }
 
 var pdtItem = function(id, nome, marca,quantidade) {
@@ -76,5 +81,18 @@ var pdtItem = function(id, nome, marca,quantidade) {
 
     this.setQuantidade = function(qtd){
         this.quantidade = qtd;
+    }
+}
+var produto_item_alterado = function(item_checkbox){
+    if(!item_checkbox.checked){
+         var linha = item_checkbox.parentNode.parentNode.parentNode.parentNode;
+         linha.childNodes[7].childNodes[0].value  = "";
+        for (var item of pdtItensSelecionados) {
+            if (item.id === item_checkbox.value){
+                index = pdtItensSelecionados.indexOf(item);
+                pdtItensSelecionados.splice(item, 1);
+                break;
+            }
+        }
     }
 }
