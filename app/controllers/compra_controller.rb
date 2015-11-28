@@ -101,6 +101,20 @@
     @item = Item.find(params[:id])
   end
 
+  def item_search
+    if (params[item_search_path].nil? ||
+        params[item_search_path][:nome].empty?)
+      nome = nil
+    else
+      nome = params[item_search_path][:nome]
+    end
+    if nome != nil
+      @items = Item.where("nome like '%#{nome}%'")
+    else
+      @items = Item.all
+    end
+  end
+
   # POST /items
   # POST /items.json
   def item_create

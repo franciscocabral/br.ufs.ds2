@@ -2,7 +2,7 @@
 #+AUTHOR: Florêncio Natan dos Santos Gama.
 #+DATE: 27/11/2015
 
-* Requisitos funcionais [30/39][76%]
+* Requisitos funcionais [31/39][79%]
 
   - [X] Inclusão de fornecedores.
         O sistema deve efetuar o cadastro dos fornecedores.
@@ -22,7 +22,7 @@
         O sistema deve efetuar a alteração dos dados dos itens fornecidos para o restaurante.
   - [X] Exclusão de itens.
       O sistema deve efetuar a exclusão dos itens fornecidos para o restaurante.
-  - [ ] Consultar de itens.
+  - [X] Consultar de itens.
       O sistema deve efetuar a consulta dos dados dos itens.
   - [X] Listagem de itens.
       O sistema deve efetuar a listagem de itens por fornecedor.

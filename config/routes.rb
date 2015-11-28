@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get 'compra/item_new', to: 'compra#item_new', as: :item_new
   get 'compra/item/:id/edit', to: 'compra#item_edit', as: :item_edit
   get 'compra/delitem/:id', to: 'compra#item_destroy', as: :item_delete
+  get 'compra/item_search' => 'compra#item_search'
+  post 'compra/item_search' => 'compra#item_search', as: :item_search
 
   get 'compra/vende_index', to: 'compra#index', as: :vende_index
   post 'compra/vende((/:id1)(/:id2)(/:id3))', to: 'compra#create'
