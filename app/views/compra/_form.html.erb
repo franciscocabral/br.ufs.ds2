@@ -27,17 +27,18 @@
   </div>
   <div class="field">
     <%= f.label :data %><br>
-    <%= f.date_select :data %>
+    <%= f.date_select :data%>
   </div>
-  <% if(not @editMode) %>
+  <br>
+  <% if(not @modo_edicao) %>
     <div class="field">
       <%= "Quantidade de itens"%><br>
-      <%= number_field("numero", "item", options = {min: 1}) %>
+      <%= number_field("numero", "item", options = {min: 1, :class => "form-control input-small"}) %>
     </div>
   <% end%>
   <div class="field">
     <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+    <%= f.number_field :valor ,:class => "form-control input-small"%>
   </div>
   <br>
   <div class="actions">

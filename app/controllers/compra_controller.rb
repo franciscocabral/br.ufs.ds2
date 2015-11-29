@@ -18,13 +18,13 @@
 
   # GET /vendes/new
   def new
-	@editMode = false
+	@modo_edicao = false
     @vende = Vende.new
   end
 
   # GET /vendes/1/edit
   def edit
-    @editMode = true
+    @modo_edicao = true
     @vende = Vende.find([params[:id1], params[:id2], params[:id3]])
   end
   
@@ -126,7 +126,7 @@
         format.html { redirect_to item_index_path, notice: 'O item foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @item }
       else
-        format.html { render :new }
+        format.html { render :item_new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
