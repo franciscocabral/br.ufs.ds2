@@ -1,9 +1,8 @@
 var pdtItensSelecionados = [];
+var tabelaDeItens = document.getElementById("lista-de-itens");
+var tabelaDeItensSelecionados = document.getElementById("tabela-selecionados");
 
-function pdtListarItensSelecionados() {
-    var tabelaDeItens = document.getElementById("lista-de-itens");
-    var tabelaDeItensSelecionados = document.getElementById("tabela-selecionados");
-
+function pdtChecarItensSelecionados() {    
     var tamanho = tabelaDeItens.rows.length;
     for (var i = 1; i < tamanho; i++) {
         var linha = tabelaDeItens.rows[i];
@@ -13,9 +12,13 @@ function pdtListarItensSelecionados() {
         var input = span.childNodes[0];
 
         if (input.checked) {
-            if (linha.childNodes[7].childNodes[0].value !== "0") {
+            if (linha.childNodes[7].childNodes[0].value === "0" || linha.childNodes[7].childNodes[0].value === "") {
+                alert("Voce precisa definir a quantidade do item: " + linha.childNodes[3].textContent);
+
+                break;
+            } else {
                 var itemAtual = new pdtItem(
-                    coluna.childNodes[0].value,             // Id
+                    input.value,             // Id
                     linha.childNodes[3].textContent,        // Nome
                     linha.childNodes[5].textContent,        // Marca
                     linha.childNodes[7].childNodes[0].value // Quantidade
@@ -27,8 +30,8 @@ function pdtListarItensSelecionados() {
                 } else {
                     var cadastrado = false;
                     for (var j =0; j < pdtItensSelecionados.length;j++){
-                        if (pdtItensSelecionados[j].id == itemAtual.id) {
-                            pdtItensSelecionados[j].quantidade = itemAtual.quantidade;
+                        if (pdtItensSelecionados[j].id === itemAtual.id) {
+                            pdtItensSelecionados[j].setQuantidade(itemAtual.quantidade);
                             cadastrado = true;
                             break;
                         }
@@ -37,22 +40,35 @@ function pdtListarItensSelecionados() {
                         pdtItensSelecionados.push(itemAtual);
                     }
                 }
-            } else {
-                alert("Voce precisa colocar a quantidade dos itens selecionados")
+                document.getElementById("alert_container").style.display = 'none';
+                $('#nova-comanda').modal('hide');
+                pdtListarItensSelecionados();
             }
         }
     }
+}
+
+var pdtListarItensSelecionados = function(){
     while (tabelaDeItensSelecionados.rows.length > 1) {
         document.getElementById('tabela-selecionados').deleteRow(1);
     }
     for (var item of pdtItensSelecionados) {
         tabelaDeItensSelecionados.innerHTML += item.getLinhaDaTabela();
     }
-
 }
-
-function pdtRemoverItem(indice) {
-    document.getElementById('tabela-selecionados').deleteRow(indice)
+var pdtRemoverItem = function(indice) {
+    var itemId = tabelaDeItensSelecionados.rows[indice].id;
+    for (var i = 1; i < tabelaDeItens.rows.lengh; i++) {
+        var linha = tabelaDeItens.rows[i];
+        var coluna = linha.childNodes[1];
+        var div = coluna.childNodes[1];
+        var span = div.childNodes[0];
+        var input = span.childNodes[0];
+        if(input.id == itemId){
+            pdtItemAlterado(input);
+        }
+    }
+    tabelaDeItensSelecionados.deleteRow(indice);
 }
 
 var pdtItem = function(id, nome, marca,quantidade) {
@@ -63,13 +79,32 @@ var pdtItem = function(id, nome, marca,quantidade) {
 
 
     this.getLinhaDaTabela = function() {
-        var linha = "<tr>";
-        linha += "<td>" + nome + "</td>";
-        linha += "<td>" + marca + "</td>";
-        linha += "<td>" + quantidade + "</td>";
+        var linha = "<tr id="+ id +">";
+        linha += "<td>" + this.nome + "</td>";
+        linha += "<td>" + this.marca + "</td>";
+        linha += "<td>" + this.quantidade + "</td>";
         linha += "<td> <input type=\"button\" value=\"Excluir\" class=\"btn red\" onClick=\"pdtRemoverItem(this.parentNode.parentNode.rowIndex)\" /></td>";
         linha += "</tr>";
         return linha;
     }
 
+    this.setQuantidade = function(qtd){
+        this.quantidade = qtd;
+    }
 }
+var pdtItemAlterado = function(item_checkbox){
+    if(!item_checkbox.checked){
+         var linha = item_checkbox.parentNode.parentNode.parentNode.parentNode;
+         linha.childNodes[7].childNodes[0].value  = "";
+        for (var item of pdtItensSelecionados) {
+            if (item.id === item_checkbox.value){
+                index = pdtItensSelecionados.indexOf(item);
+                pdtItensSelecionados.splice(item, 1);
+                pdtListarItensSelecionados();
+                break;
+            }
+        }
+    }
+}
+
+//atualizar lista de item ao excluir

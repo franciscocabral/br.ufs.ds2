@@ -98,7 +98,7 @@
                         </td>
                         <td><%= item.nome %></td>
                         <td><%= item.marca %></td>
-                        <td><input name="quantidade" class="form-control"/></td>
+                        <td><input type="number" min="0" name="quantidade" class="form-control"/></td>
                       </tr>
                     <% end %>
                   </tbody>
@@ -110,7 +110,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <input type="button" class="btn red" onclick="pdtListarItensSelecionados()" value="Adicionar"/>
+        <input type="button" class="btn red" onclick="pdtListarItensSelecionados()" aria-hidden="true" data-dismiss="modal" value="Adicionar"/>
       </div>
   <%end%>
 </div>

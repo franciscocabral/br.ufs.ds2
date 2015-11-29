@@ -183,7 +183,7 @@ CREATE TABLE `pedido` (
   `idFuncionario` int(11) NOT NULL,
   `idProduto` int(11) NOT NULL,
   `idcomanda` int(11) NOT NULL,
-  `dataPedido` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dataPedido` timestamp DEFAULT CURRENT_TIMESTAMP,
   `dataFinalizacao` datetime DEFAULT NULL,
   `cancelado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`idPedido`),
