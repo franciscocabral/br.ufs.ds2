@@ -19,7 +19,7 @@
         <td><%= item.marca %></td>
         <td><%= item.quantidade %></td>
         <td align = "center">
-		  <% if(item.quantidade <= item.quantidadeMinima) %><span class="glyphicon glyphicon-exclamation-sign" title="A quantidade de itens esta baixa"></span><% end %>
+		  <% if(item.quantidade < item.quantidadeMinima) %><span class="glyphicon glyphicon-exclamation-sign" title="A quantidade de itens esta baixa"></span><% end %>
 		</td>
         <td align = "right"> <a href = <%= item_show_path(item)%>> <span class="glyphicon glyphicon-log-in" title="Detalhes"> </a></td>
         <td align = "center"> <a href = <%= item_edit_path(item)%>> <span class="glyphicon glyphicon-edit" title="Modificar"> </a></td>

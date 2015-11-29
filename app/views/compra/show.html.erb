@@ -1,34 +1,41 @@
-﻿<h1>Detalhes de compra</h1>
-<br>
+﻿<p id="notice"><%= notice %></p>
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption font-blue-sunglo">
+			<span class="caption-subject bold uppercase">Detalhes de compra</span>
+		</div>
+	</div>
 
-<p id="notice"><%= notice %></p>
+	<br>
 
-<p>
-  <strong>Código:</strong>
-  <%= @vende.idVende %>
-</p>
 
-<p>
-  <strong>Fornecedor:</strong>
-  <%= Fornecedor.find(@vende.idFornecedor).nome %>
-</p>
+	<p>
+		<strong>Código:</strong>
+		<%= @vende.idVende %>
+	</p>
 
-<p>
-  <strong>Item:</strong>
-  <%= (item = Item.find(@vende.idItem)).nome + " (" + item.marca + ")" %>
-</p>
+	<p>
+		<strong>Fornecedor:</strong>
+		<%= Fornecedor.find(@vende.idFornecedor).nome %>
+	</p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @vende.data %>
-</p>
+	<p>
+		<strong>Item:</strong>
+		<%= (item = Item.find(@vende.idItem)).nome + " (" + item.marca + ")" %>
+	</p>
 
-<p>
-  <strong>Valor:</strong>
-  <%= @vende.valor %>
-</p>
-<br>
+	<p>
+		<strong>Data:</strong>
+		<%= @vende.data %>
+	</p>
 
-<%= button_to 'Modificar', vende_edit_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), :class => "btn blue", :method => :get  %><br>
-<%= button_to 'Voltar', vende_index_path, :class => "btn btn-default", :method => :get  %><br>
+	<p>
+		<strong>Valor:</strong>
+		<%= @vende.valor %>
+	</p>
+	<br>
 
+	<%= button_to 'Modificar', vende_edit_path(@vende.idVende, @vende.idFornecedor, @vende.idItem), :class => "btn blue", :method => :get  %><br>
+	<%= button_to 'Voltar', vende_index_path, :class => "btn btn-default", :method => :get  %><br>
+
+</div>

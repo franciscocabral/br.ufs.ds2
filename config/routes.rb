@@ -36,14 +36,13 @@ Rails.application.routes.draw do
 
   #routing compra_controller.rb
   get 'compra/item_index', to: 'compra#item_index', as: :item_index
+  post 'compra/item_index', to: 'compra#item_index'
   post 'compra/item(/:id)', to: 'compra#item_create'
   patch 'compra/item/:id', to: 'compra#item_update'
   get 'compra/item(/:id)', to: 'compra#item_show', as: :item_show
   get 'compra/item_new', to: 'compra#item_new', as: :item_new
   get 'compra/item/:id/edit', to: 'compra#item_edit', as: :item_edit
   get 'compra/delitem/:id', to: 'compra#item_destroy', as: :item_delete
-  get 'compra/item_search' => 'compra#item_search'
-  post 'compra/item_search' => 'compra#item_search', as: :item_search
   get 'compra/relatorio_itens_falta' => 'compra#relatorio_itens_falta', as: :itens_falta_relatorio
 
   get 'compra/vende_index', to: 'compra#index', as: :vende_index

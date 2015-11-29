@@ -82,7 +82,19 @@
   # GET /items
   # GET /items.json
   def item_index
-    @items = Item.all
+    #@items = Item.all
+  
+	if (params[item_index_path].nil? ||
+        params[item_index_path][:nome].empty?)
+      nome = nil
+    else
+      nome = params[item_index_path][:nome]
+    end
+    if nome != nil
+      @items = Item.where("nome like '%#{nome}%'")
+    else
+      @items = Item.all
+    end
   end
 
   # GET /items/1
@@ -101,22 +113,8 @@
     @item = Item.find(params[:id])
   end
 
-  def item_search
-    if (params[item_search_path].nil? ||
-        params[item_search_path][:nome].empty?)
-      nome = nil
-    else
-      nome = params[item_search_path][:nome]
-    end
-    if nome != nil
-      @items = Item.where("nome like '%#{nome}%'")
-    else
-      @items = Item.all
-    end
-  end
-
   def relatorio_itens_falta
-    @items = Item.where("quantidade = 0") 
+    @item = Item.where("quantidade < quantidadeMinima") 
   end
 
   # POST /items
