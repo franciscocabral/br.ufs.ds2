@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
 Version: 4.1.0
@@ -96,7 +96,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <%= link_to "", current_funcionario %>
 
                     <a href="/funcionarios/<%= current_funcionario.id %>">
-                      <i class="icon-user"></i> My Home
+                      <i class="icon-user"></i> Minha conta
                     </a>
                   </li>
                   <li class="divider">
@@ -135,58 +135,65 @@ License: You must have a valid license purchased only from themeforest(the above
       <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
       <!-- BEGIN SIDEBAR MENU1 -->
       <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-auto-scroll="true" data-slide-speed="200">
-        <% if logged_in? %>
+		<% if logged_in? %>
             <li class="start ">
               <a href="/funcionarios/<%= current_funcionario.id %>">
                 <i class="fa fa-home"></i>
-                <span class="title">My Home</span>
+                <span class="title">Minha conta</span>
+              </a>
+            </li>
+		<% else %>
+			<li class="start ">
+              <a href="<%= home_path %>">
+                <i class="fa fa-home"></i>
+                <span class="title">Início</span>
               </a>
             </li>
         <% end %>
-        <li>
-          <a href="/fornecedors/">
-            <i class="fa fa-truck"></i>
-            <span class="title">Fornecedores</span>
-          </a>
-        </li>
-        <li>
-          <a href="/pedidos/">
-            <i class="fa fa-child"></i>
-            <span class="title">Pedidos</span>
-          </a>
-        </li>
-        <li>
-          <a href="/produtos/">
-            <i class="fa fa-coffee"></i>
-            <span class="title">Produtos</span>
-          </a>
-        </li>
-        <li>
-          <a href="/compra/item_index/">
-            <i class="fa fa-cube"></i>
-            <span class="title">Items</span>
-          </a>
-        </li>
-        <li>
-          <a href="/comandas/">
-            <i class="fa fa-cutlery"></i>
-            <span class="title">Comandas</span>
-          </a>
-        </li>
-        <li>
-
-          <!-- <a href="/componentes_produtos/">
-            <i class="fa fa-cubes"></i>
-            <span class="title">Componentes</span>
-          </a> -->
-        </li>
-<!--        <li>
-          <a href="/compra/vende_index/">
-            <i class="fa fa-credit-card"></i>
-            <span class="title">Vendas</span>
-          </a>
-        </li> -->
-
+        <%if (satisfaz_privilegio?(0))%>
+			<li>
+				<a href="/funcionarios/">
+				<i class="fa fa-child"></i>
+				<span class="title">Funcionários</span>
+				</a>
+			</li>
+			<li>
+				<a href="/fornecedors/">
+				<i class="fa fa-truck"></i>
+				<span class="title">Fornecedores</span>
+				</a>
+			</li>
+			<li>
+				<a href="/compra/item_index/">
+				<i class="fa fa-cube"></i>
+				<span class="title">Itens</span>
+				</a>
+			</li>
+		<%end%>
+		<%if (satisfaz_privilegio?(2))%>
+			<li>
+				<a href="/produtos/">
+				<i class="fa fa-coffee"></i>
+				<span class="title">Produtos</span>
+				</a>
+			</li>
+		<%end%>
+		<%if (satisfaz_privilegio?(1))%>
+			<li>
+				<a href="/comandas/">
+				<i class="fa fa-cutlery"></i>
+				<span class="title">Comandas</span>
+				</a>
+			</li>
+		<%end%>
+		<%if (satisfaz_privilegio?(3))%>
+			<li>
+				<a href="/pedidos/">
+				<i class="fa fa-flag"></i>
+				<span class="title">Pedidos</span>
+				</a>
+			</li>
+		<%end%>
       </ul>
       <!-- END SIDEBAR MENU1 -->
     </div>

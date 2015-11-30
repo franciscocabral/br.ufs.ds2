@@ -1,0 +1,45 @@
+<%= form_for(@pedido) do |f| %>
+  <% if @pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% @pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :idPedido %><br>
+    <%= f.number_field :idPedido %>
+  </div>
+  <div class="field">
+    <%= f.label :idFuncionario %><br>
+    <%= f.number_field :idFuncionario %>
+  </div>
+  <div class="field">
+    <%= f.label :idProduto %><br>
+    <%= f.number_field :idProduto %>
+  </div>
+  <div class="field">
+    <%= f.label :idcomanda %><br>
+    <%= f.number_field :idcomanda %>
+  </div>
+  <div class="field">
+    <%= f.label :dataPedido %><br>
+    <%= f.datetime_select :dataPedido %>
+  </div>
+  <div class="field">
+    <%= f.label :dataFinalizacao %><br>
+    <%= f.datetime_select :dataFinalizacao %>
+  </div>
+  <div class="field">
+    <%= f.label :cancelado %><br>
+    <%= f.check_box :cancelado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

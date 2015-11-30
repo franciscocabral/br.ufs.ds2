@@ -1,6 +1,9 @@
 # coding: utf-8
 require 'json'
 class ProdutosController < ApplicationController
+  include ApplicationHelper
+  before_action only: [:new, :create, :update, :edit, :destroy] do redirecionar_privilegio(0) end
+  before_action do redirecionar_privilegio(2) end
   before_action :set_produto, only: [:show, :edit, :update, :destroy]
   before_action :set_componentes_produto, only: [:show, :edit, :update, :destroy]
 

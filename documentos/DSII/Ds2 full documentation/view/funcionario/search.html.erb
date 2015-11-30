@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Busca de Funcionarios pelo nome</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+
+    <%= form_for(funcionario_search_path) do |f| %>
+      <div class="col-md-6">
+      <%= f.label 'Nome:' %><br>
+      <%= f.text_field :nome, class: "form-control" %>
+    </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit "Consulta", class: "btn green"%>
+    </div>
+
+  <% end %>
+
+    <%= render partial: 'table', locals: {funcionarios: @funcionarios } %>
+
+    <br>
+  </div>
+</div>

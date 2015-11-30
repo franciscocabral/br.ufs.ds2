@@ -1,39 +1,44 @@
 <p id="notice"><%= notice %></p>
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption font-blue-sunglo">
+			<span class="caption-subject bold uppercase">Detalhes do pedido</span>
+		</div>
+	</div>
+	<p>
+		<strong>Idpedido:</strong>
+		<%= @pedido.idPedido %>
+	</p>
 
-<p>
-  <strong>Idpedido:</strong>
-  <%= @pedido.idPedido %>
-</p>
+	<p>
+		<strong>Idfuncionario:</strong>
+		<%= @pedido.idFuncionario %>
+	</p>
 
-<p>
-  <strong>Idfuncionario:</strong>
-  <%= @pedido.idFuncionario %>
-</p>
+	<p>
+		<strong>Idproduto:</strong>
+		<%= @pedido.idProduto %>
+	</p>
 
-<p>
-  <strong>Idproduto:</strong>
-  <%= @pedido.idProduto %>
-</p>
+	<p>
+		<strong>Idcomanda:</strong>
+		<%= @pedido.idcomanda %>
+	</p>
 
-<p>
-  <strong>Idcomanda:</strong>
-  <%= @pedido.idcomanda %>
-</p>
+	<p>
+		<strong>Datapedido:</strong>
+		<%= @pedido.dataPedido %>
+	</p>
 
-<p>
-  <strong>Datapedido:</strong>
-  <%= @pedido.dataPedido %>
-</p>
+	<p>
+		<strong>Datafinalizacao:</strong>
+		<%= @pedido.dataFinalizacao %>
+	</p>
 
-<p>
-  <strong>Datafinalizacao:</strong>
-  <%= @pedido.dataFinalizacao %>
-</p>
+	<p>
+		<strong>Cancelado:</strong>
+		<%= @pedido.cancelado %>
+	</p>
 
-<p>
-  <strong>Cancelado:</strong>
-  <%= @pedido.cancelado %>
-</p>
-
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+	<%= button_to "Voltar", pedidos_path, :class => "btn btn-default", :method => :get  %>
+</div>

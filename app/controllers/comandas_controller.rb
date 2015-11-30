@@ -1,4 +1,6 @@
 class ComandasController < ApplicationController
+  include ApplicationHelper
+  before_action do redirecionar_privilegio(1) end
   before_action :set_comanda, only: [:show, :edit, :update, :encerrar, :new_pedido]
   before_action :set_pedido, only: [:cancelar_pedido,:finalizar_pedido]
 

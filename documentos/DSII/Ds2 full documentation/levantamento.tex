@@ -1,0 +1,673 @@
+
+\clearpage\section[Levantamento de requisitos]{\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Levantamento de requisitos}}}
+\subsection[Propósito do Documento]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Propósito do Documento}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ Este documento contém a especificação de um sistema para controle
+e atendimento de um restaurante. Nas próximas seções, será apresentado de forma mais detalhada as características do
+sistema.}}
+
+\subsection[Escopo do Produto]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Escopo do Produto}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ O sistema destina-se a gerência de restaurantes, abrangendo os
+seguintes setores: financeiro, estoque, controle de funcionários e atendimento.}}
+
+\subsection[Definições e Abreviações]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Definições e
+Abreviações}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ }\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Definições}}}
+
+{\selectlanguage{portuges}
+\textit{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Item(ns)}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Cada mercadoria existente no estoque.}}
+
+{\selectlanguage{portuges}
+\textit{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Produto(s)}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Mercadorias comercializadas pelo restaurante. }}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ }\textit{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Pedidos}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Requisição de produtos feitas pelo comanda.}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ }\textit{Comanda}: Lista de pedidos vinculada a uma mesa. }
+
+{\selectlanguage{portuges}
+\textit{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Comanda
+Fechada}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Comanda que não permite a adesão de pedidos.}}
+
+{\selectlanguage{portuges}
+\ \ \textit{Comanda Ativa}: Comanda que permite a adesão de pedidos.}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ }\textit{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Restaurante}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Estabelecimento comercial de venda de produtos.}}
+
+{\selectlanguage{portuges}
+\textit{Funcionário}: Pessoa física com vínculo empregatício com o restaurante. }
+
+{\selectlanguage{portuges}
+\textit{Relatório:} Apresentação de um conjunto de informações específicas do restaurante.}
+
+{\selectlanguage{portuges}
+\textit{Entrada de Itens:} A aquisição de itens feita pelo restaurante, e inseridos no estoque.}
+
+{\selectlanguage{portuges}
+\textit{Saída de Itens:} A retirada de um item do estoque.}
+
+{\selectlanguage{portuges}
+\textit{Arrecadação Líquida}: Valor arrecadado subtraído dos gastos.}
+
+
+\bigskip
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{1.3.2 Abreviações}}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RF}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Requisitos Funcionais;}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ }\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{:
+Requisitos Não Funcionais;}}
+
+
+\bigskip
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{1.4 Referências}}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ SOMMERVILLE, I. Engenharia de Software.
+}\foreignlanguage{english}{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Pearson/Prentice Hall}}}
+
+{\selectlanguage{portuges}
+\foreignlanguage{english}{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{PRESSMAN, R. S. Engenharia de Software.
+}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{McGraw Hill}}
+
+
+\bigskip
+
+\subsection[Visão Geral do Restante do Documento]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Visão Geral
+do Restante do Documento}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ Nas próximas seções serão mostradas as características gerais do
+sistema e suas funcionalidades. Segue ainda, a descrição de restrições e dependências que devem ser consideradas para o
+devido funcionamento. Atrelado às funcionalidades do sistema, é apresentada também uma lista de requisitos funcionais e
+não funcionais que servirão como guia para o desenvolvimento do sistema.}}
+
+
+\bigskip
+
+\clearpage\subsection[Descrição Geral]{\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Descrição
+Geral}}}
+\subsubsection[Perspectiva do Produto]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Perspectiva do Produto}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ Espera-se que o sistema seja desenvolvido e implementado durante
+as disciplinas de Desenvolvimento de Software I, II e III da Universidade Federal de Sergipe, bem como implantá-lo em
+algum restaurante e verificar se as necessidades do restaurante foram atendidas em todas as partes descritas.}}
+
+\subsubsection[Funções do Produto]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Funções do Produto}}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O produto permite a gestão de um restaurante, possibilitando o
+controle de estoque, controle do atendimento, gerenciando pedidos e comandas, e permite também o controle financeiro e
+de funcionários.}}
+
+\subsubsection[Características do Usuário]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Características do
+Usuário}}
+{\selectlanguage{portuges}
+Segue abaixo a definição de cada tipo de usuário do sistema:}
+
+{\selectlanguage{portuges}
+\textit{Cozinheiro}: Usuário cuja interação com o sistema é \ limitada a visualização dos pedidos e a notificação de
+quando um pedido estiver pronto.}
+
+{\selectlanguage{portuges}
+\textit{Garçom}: Usuário responsável pelo atendimento, solicitação, alteração, exclusão e entrega de pedidos, bem como o
+fechamento de comandas.}
+
+{\selectlanguage{portuges}
+\textit{Gerente}: Usuário com acesso a todas as funcionalidades do sistema.}
+
+\subsubsection[Restrições Gerais \ ]{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Restrições Gerais \ }}
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.5019608,0.0,0.0}{Os funcionários que utilizarão o sistema deverão ser treinados para que se
+tornem aptos para o uso do sistema.}}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.5019608,0.0,0.0}{O restaurante deverá possuir dispositivos móveis (Smartphone ou Tablet) com
+configuração mínima de: processador de 1GHz, memória RAM 1GB, espaço de armazenamento interno de 500 MB e sistema
+operacional Android 4.2 .}}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.5019608,0.0,0.0}{O restaurante deverá possuir uma rede local Wi-fi (IEEE 802.11) disponível
+exclusivamente para os funcionários.}}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.5019608,0.0,0.0}{O restaurante deverá possuir um computador central onde ficarão todos os
+dados do sistema.}}}
+
+
+\bigskip
+
+{\selectlanguage{portuges}
+\subsubsection{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Suposições e Dependências}}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Faz-se necessário para o funcionamento do software a existência de
+tablets ou smartphones para que os garçons utilizem no atendimento.}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Rede wifi para que os tablets ou smartphones se comuniquem com o
+sistema do restaurante, e um computador que funcione como servidor do sistema.}}
+\bigskip
+
+\clearpage\subsection[Requisitos específicos]{\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Requisitos específicos}}}
+{\selectlanguage{portuges}
+\subsubsection{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Requisitos Funcionais}}}
+
+\liststyleWWNumi
+\begin{enumerate}
+\item {\selectlanguage{portuges}
+Inclusão\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ de fornecedores.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar o }cadastro dos
+fornecedores\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Alteração de fornecedores.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a alteração dos dados cadastrais de
+fornecedores.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Exclusão de fornecedores.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a exclusão de fornecedores.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Consulta de fornecedores.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a consulta dos dados dos fornecedores.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Listagem de fornecedores.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a listagem dos dados dos fornecedores.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de relatórios de itens por fornecedor.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a geração de relatórios de itens por
+fornecedor.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Inclusão dos itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a inclusão dos dados dos itens fornecidos para
+o restaurante.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Alteração de itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a alteração dos dados dos itens fornecidos
+para o restaurante.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Exclusão de itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a exclusão dos itens fornecidos para o
+restaurante.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Consultar de itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a consulta dos dados dos itens.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Listagem de itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a listagem de itens por fornecedor.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Aviso de quantidade de intens abaixo do limite delimitado.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve informar quando a quantidade de um item estiver abaixo
+do valor mínimo definido pelo gerente.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de relatório de Itens em falta.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar geração de relatórios dos itens que estão em
+falta, ou seja, aqueles que a quantidade é igual a zero.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Inclusão de comandas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a inclusão de comandas, incluindo a hora de
+abertura.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Associar comanda a um funcionário.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ \ O sistema deve associar uma comanda a um funcionário
+responsável.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Encerramento de comandas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar o encerramento de comandas, incluindo a hora
+de encerramento.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Alteração de comandas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a alteração de comandas.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Listagem de comandas ativas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a listagem de comandas que não possuem hora de
+encerramento.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Impressão de comanda.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a impressão da comanda.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Consulta informações dos pedidos da Comandas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve permitir a consulta de informações dos pedidos da
+comanda.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Inclusão de pedido de Produto na comanda.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a inclusão do pedido, incluindo a hora inicial
+no pedido.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Entrega do pedido de Produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar inclusão da hora final no pedido.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Cancelamento de pedidos.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve permitir o cancelamento de pedidos.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Informações de pedido.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve permitir a consulta das informações dos pedidos.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Opções de pagamento.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deverá informar sobre as opções de pagamento aceitas.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Inclusão de produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar o cadastro do produto.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Alteração de produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a alteração do produto.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Exclusão de produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a exclusão do produto.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Consulta de produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a consulta de informações do produto.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de Lista de Itens por Produto.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a geração da lista de itens que compoem um
+produto.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Validação do produto a partir dos itens.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar verificação da possibilidade de produção do
+produto a partir dos itens.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Inclusão de Funcionários.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar o cadastro do funcionário.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Alteração de Funcionários.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a alteração do funcionário.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Demissão de Funcionários.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a demissão do funcionário.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Consulta de Funcionários.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar consulta de funcionário.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Listagem de Funcionários}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar listagem dos dados do funcionário.}}
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de relatórios das comandas encerradas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O sistema deve efetuar a geração de relatórios contendo as comandas
+encerradas do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de relatórios de despesas.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O Sistema deve efetuar a geração de relatórios contendo as despesas
+do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.}}
+
+\liststyleWWNumi
+\setcounter{saveenum}{\value{enumi}}
+\begin{enumerate}
+\setcounter{enumi}{\value{saveenum}}
+\item {\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{Geração de relatórios da arrecadação líquida.}}
+\end{enumerate}
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O Sistema deve efetuar a geração de relatórios contendo a arrecadação
+liquida do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.}}
+
+
+\bigskip
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{3.2 Requisitos Não-Funcionais}}}
+
+
+\bigskip
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF1:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ O
+sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos itens em, no máximo, 6
+segundos, em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF2}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{: O
+sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos fornecedores em no máximo 6
+segundos, em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF3:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ O
+sistema deve processar a alteração de dados relativos a}}
+
+{\selectlanguage{portuges}
+\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{\ fornecedores e itens em, no máximo, 8 segundos, em 90\% dos
+casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF4:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ O
+sistema deve processar a inclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90\% dos
+casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF5:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ O
+sistema deve processar a exclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90\% dos
+casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF6: }}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{O
+sistema deve gerar relatórios em, no máximo, 6 segundos, em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF7}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{: O
+sistema deve retornar o resultado de uma consulta ao sistema em no máximo 6s em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF8:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ A
+listagem de itens fora da validade referente} a RF14 dev\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{e ser
+realizada em no máximo 10 segundos em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF9:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ A
+listagem com os itens referente} a RF9\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ deve ser realizada em no
+máximo 10 segundos em 90\% dos casos.}}
+
+{\selectlanguage{portuges}
+\textbf{\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{RNF10:}}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{ O
+relatorio de despesas do restaurante referent}e a RF11\textcolor[rgb]{1.0,0.6,0.0}{
+}\textcolor[rgb]{0.078431375,0.09411765,0.13725491}{deve ser realizada em no máximo 10 segundos em 90\% dos casos.}}
+
+
+\bigskip

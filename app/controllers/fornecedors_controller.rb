@@ -1,4 +1,6 @@
 class FornecedorsController < ApplicationController
+  include ApplicationHelper
+  before_action do redirecionar_privilegio(0) end
   before_action :set_fornecedor, only: [:show, :edit, :update, :destroy, :relatorio]
 
   # GET /fornecedors
@@ -46,7 +48,7 @@ class FornecedorsController < ApplicationController
 
     respond_to do |format|
       if @fornecedor.save
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor was successfully created.' }
+        format.html { redirect_to @fornecedor, notice: 'Fornecedor foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @fornecedor }
       else
         format.html { render :new }
@@ -60,7 +62,7 @@ class FornecedorsController < ApplicationController
   def update
     respond_to do |format|
       if @fornecedor.update(fornecedor_params)
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor was successfully updated.' }
+        format.html { redirect_to @fornecedor, notice: 'Fornecedor foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @fornecedor }
       else
         format.html { render :edit }
@@ -74,7 +76,7 @@ class FornecedorsController < ApplicationController
   def destroy
     @fornecedor.destroy
     respond_to do |format|
-      format.html { redirect_to fornecedors_url, notice: 'Fornecedor was successfully destroyed.' }
+      format.html { redirect_to fornecedors_url, notice: 'Fornecedor foi removido com sucesso.' }
       format.json { head :no_content }
     end
   end

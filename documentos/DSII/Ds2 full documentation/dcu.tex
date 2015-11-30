@@ -1,0 +1,1208 @@
+\clearpage
+\section{Casos de Uso}
+\textbf{Nome:} Cadastrar funcionário.
+
+\textbf{Descrição:} Cadastra um funcionário no sistema.
+
+\textbf{Identificador: CDU1}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{8.212cm}|m{7.9490004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Insere os dados \ do funcionário no sistema  &
+~
+\\\hline
+~
+ &
+2 - Registra os dados\\\hline
+~
+ &
+3 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Alterar funcionário
+
+\textbf{Descrição:} Altera as informações de um funcionário no sistema.
+
+\textbf{Identificador: CDU2}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O funcionário deve está cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{8.265cm}|m{7.7380004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Solicita o registro do funcionário ao sistema &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro do funcionário.
+
+2b - Retorna aviso que o funcionário não se encontra no sistema\\\hline
+3 - Altera os dados do funcionário no sistema  &
+~
+\\\hline
+~
+ &
+4 - Registra os dados do funcionário \\\hline
+~
+ &
+5 - Confirma operação \\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Nome:} Demitir funcionário
+
+\textbf{Descrição:} Remove cadastro do funcionário associado ao sistema.
+
+\textbf{Identificador: CDU3}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O\textbf{ }funcionário deve estar cadastrado no sistema e deve não estar associado a qualquer
+escala de horário do sistema.
+
+\textbf{Fluxo Principal: }
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.974cm}|m{7.8170004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Solicita o registro do funcionário ao sistema &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro do funcionário
+
+2b - Retorna aviso que o funcionário não se encontra no sistema\\\hline
+3 - Solicita remoção do funcionário ao sistema &
+~
+\\\hline
+~
+ &
+4 - Exclui funcionário do sistema\\\hline
+~
+ &
+5 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Registrar hora extra.
+
+\textbf{Descrição:} Registra as horas extras dos funcionários.
+
+\textbf{Identificador: CDU4}
+
+\textbf{Importância: 2}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O funcionário deve está cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.471cm}|m{7.05cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Solicita o registro do funcionário ao sistema &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro do funcionário
+
+2b - Retorna aviso que o funcionário não se encontra no sistema\\\hline
+3 - Insere as horas extras no sistema &
+~
+\\\hline
+~
+ &
+4 - Registra as horas extras do funcionário \\\hline
+~
+ &
+5 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Nome:} Cadastrar Escala de Horários.
+
+\textbf{Descrição:} Cadastra as escalas de horários dos funcionários.
+
+\textbf{Identificador: CDU5}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O funcionário deve está cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.8150005cm}|m{7.9490004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Informa turno de trabalho &
+~
+\\\hline
+2 - Solicita escala de horários ao sistema &
+~
+\\\hline
+~
+ &
+3 - Retorna escala de horários\\\hline
+4 - Aloca funcionário na escala de horário &
+~
+\\\hline
+~
+ &
+5 - Registra alocação de horário \\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Alterar Escala de Horários
+
+\textbf{Descrição:} Altera as escalas de horários dos funcionários.
+
+\textbf{Identificador: CDU6}
+
+\textbf{Importância: 1}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O funcionário deve está cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.683cm}|m{8.055cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 -Solicita escala de horários ao sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna escala de horários\\\hline
+3 - Altera a escala de horários do funcionário &
+~
+\\\hline
+~
+ &
+4 - Registra a nova escala de horário\\\hline
+~
+ &
+5 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Cadastrar desconto.
+
+\textbf{Descrição:} Cadastra descontos.
+
+\textbf{Identificador: CDU7}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }Devem existir refeições cadastradas.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.87cm}|m{7.868cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Consulta refeições &
+~
+\\\hline
+~
+ &
+2 - Retorna as refeições\\\hline
+3 - Associa refeições a um desconto &
+~
+\\\hline
+~
+ &
+4 - Registra desconto\\\hline
+~
+ &
+5 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Alterar desconto.
+
+\textbf{Descrição:} O gerente altera o desconto.
+
+\textbf{Identificador: CDU8}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O desconto deve existir.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.974cm}|m{7.7380004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Solicita registro desconto &
+~
+\\\hline
+~
+ &
+2 - Retorna registro do desconto\\\hline
+3 - Altera informações do desconto &
+~
+\\\hline
+~
+ &
+5 - Registra desconto\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Excluir desconto.
+
+\textbf{Descrição: }O gerente remove o desconto.
+
+\textbf{Identificador: CDU9}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré-condições: }O desconto deve existir.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.894cm}|m{7.7640004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Solicita registro do desconto &
+~
+\\\hline
+~
+ &
+2 - Retorna registro do desconto\\\hline
+3 - Exclui desconto &
+~
+\\\hline
+4 - Confirma exclusão. &
+~
+\\\hline
+~
+ &
+5 - Realiza exclusão\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Cadastrar Item.
+
+\textbf{Descrição:} O estoquista cadastra um novo item no sistema.
+
+\textbf{Identificador: CDU10}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Principal:} Estoquista.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.709cm}|m{8.108cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Informa ao sistema o item a ser cadastrado &
+~
+\\\hline
+~
+ &
+2 - Registra cadastro\\\hline
+~
+ &
+3 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Alterar Item.
+
+\textbf{Descrição:} Altera um determinado item no sistema.
+
+\textbf{Identificador: CDU11}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Principal:} Estoquista.
+
+\textbf{Pré-condições: }O Item deve existir.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.656cm}|m{7.87cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Consulta o item no sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro do item.\\\hline
+3 - Realiza alterações &
+~
+\\\hline
+4 - Confirma alterações &
+~
+\\\hline
+~
+ &
+5 - Registra alterações\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Excluir Item.
+
+\textbf{Descrição:} O estoquista exclui o item no sistema.
+
+\textbf{Identificador: CDU12}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Principal:} Estoquista.
+
+\textbf{Pré-condições: }O Item deve existir.
+
+\textbf{Fluxo Principal:}
+
+
+\bigskip
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.471cm}|m{8.055cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Consulta item no sistema. &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro do item.\\\hline
+3 - Exclui item &
+~
+\\\hline
+4 - Confirma exclusão. &
+~
+\\\hline
+~
+ &
+5 - Realiza exclusão\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Consultar Item.
+
+\textbf{Descrição:} O estoquista consulta item no sistema.
+
+\textbf{Identificador: CDU13}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Principal:} Estoquista.
+
+\textbf{Fluxo Principal:}
+
+
+\bigskip
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.392cm}|m{8.134cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Informa ao sistema item escolhido &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro do item.
+
+2b - Retorna aviso que o item não se encontra no sistema\\\hline
+3 - Visualiza item consultado &
+~
+\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Cadastrar fornecedor.
+
+\textbf{Descrição:} Cria o cadastro de um fornecedor no sistema.
+
+\textbf{Identificador: CDU14}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Primário: }Estoquista.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.3650002cm}|m{8.214cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Informa ao sistema dados do fornecedor a ser cadastrado &
+~
+\\\hline
+~
+ &
+2 - Registra fornecedor\\\hline
+~
+ &
+3 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Nome:} Alterar fornecedor.
+
+\textbf{Descrição:} Altera informações do cadastro de um fornecedor no sistema.
+
+\textbf{Identificador: CDU15}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Estoquista.
+
+\textbf{Pré- Condições:} O fornecedor deve estar cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.524cm}|m{8.055cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Solicita o registro do fornecedor ao sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro do fornecedor.\\\hline
+3 - Altera os dados do fornecedor no sistema  &
+~
+\\\hline
+~
+ &
+4 - Registra os dados do fornecedor \\\hline
+~
+ &
+5 - Confirma cadastro do fornecedor \\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Excluir fornecedor.
+
+\textbf{Descrição:} Exclui um fornecedor do sistema.
+
+\textbf{Identificador: CDU16}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Primário: }Estoquista.
+
+\textbf{Pré- Condições:} Fornecedor deve estar cadastrado no sistema.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.551cm}|m{7.9490004cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Consulta o fornecedor no sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro do fornecedor.\\\hline
+3 - Exclui o fornecedor &
+~
+\\\hline
+4 - Confirma exclusão &
+~
+\\\hline
+~
+ &
+5 - Realiza exclusão\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Consultar fornecedor.
+
+\textbf{Descrição:} Faz uma consulta nos fornecedores cadastrados no sistema.
+
+\textbf{Identificador: CDU17}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Estoquista.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.471cm}|m{8.029cm}|}
+\hline
+Estoquista &
+Sistema\\\hline
+1 - Informa ao sistema o fornecedor a ser consultado. &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro do fornecedor.
+
+2b - Retorna aviso que o fornecedor não se encontra no sistema\\\hline
+3 - Visualiza a consulta. &
+~
+\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Nome:} Consultar refeição.
+
+\textbf{Descrição:} O Garçom consulta no sistema as refeições disponíveis.
+
+\textbf{Identificador: CDU18}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Principal:} Garçom.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.524cm}|m{8.029cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1 - Informa ao sistema a refeição a ser consultada &
+~
+\\\hline
+~
+ &
+2a - Retorna o registro da refeição.
+
+2b - Retorna um aviso que a refeição não está cadastrada no sistema.\\\hline
+3- Visualiza a refeição &
+~
+\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Cadastrar refeição.
+
+\textbf{Descrição:} Cadastra uma refeição no sistema.
+
+\textbf{Identificador: CDU19}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.709cm}|m{7.8430004cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Informa ao sistema a refeição a ser cadastrada. &
+~
+\\\hline
+~
+ &
+2 - Registra refeição\\\hline
+~
+ &
+3 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Nome:} Alterar refeição.
+
+\textbf{Descrição:} Altera o cadastro de uma refeição no sistema.
+
+\textbf{Identificador: CDU20}
+
+\textbf{Impo\ \ rtância: 4}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré- Condições:} A refeição deve estar cadastrada no sistema.
+
+\textbf{Fluxo Principal:}
+
+
+\bigskip
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.5490003cm}|m{7.977cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Consulta refeição no sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro da refeição.\\\hline
+3 - Realiza alterações &
+~
+\\\hline
+4 - Confirma alterações &
+~
+\\\hline
+~
+ &
+5 - Registra alterações\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Excluir refeição.
+
+\textbf{Descrição:} Exclui o cadastro de uma refeição no sistema.
+
+\textbf{Identificador: CDU21}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Primário: }Gerente.
+
+\textbf{Pré- Condições:} A refeição deve estar cadastrada no sistema.
+
+\textbf{Fluxo Principal:}
+
+
+\bigskip
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.498cm}|m{8.002cm}|}
+\hline
+Gerente &
+Sistema\\\hline
+1 - Consulta refeição no sistema &
+~
+\\\hline
+~
+ &
+2 - Retorna o registro da refeição.\\\hline
+3 - Exclui refeição &
+~
+\\\hline
+4 - Confirma exclusão &
+~
+\\\hline
+~
+ &
+5 - Realiza exclusão\\\hline
+~
+ &
+6 - Confirma operação\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome}: Incluir Pedido na Comanda.
+
+\textbf{Descrição:} O Garçom inclui o pedido do Cliente na comanda referente à mesa deste Cliente.
+
+\textbf{Identificador: CDU22}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Principal:} Garçom
+
+\textbf{Pré- Condições:} Comanda da mesa deve ter sido incluída.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.418cm}|m{8.081cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1 - Consulta comanda no sistema. &
+~
+\\\hline
+~
+ &
+2 - Retorna comanda consultada\\\hline
+3 - Insere o pedido no sistema. &
+~
+\\\hline
+~
+ &
+4 - Registra o pedido\\\hline
+5 - Inclui o pedido na comanda. &
+~
+\\\hline
+~
+ &
+6 - Realiza Inclusão\\\hline
+~
+ &
+7 - Confirma inclusão\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome: }Excluir pedido da comanda.
+
+\textbf{Descrição: }O Garçom remove o pedido da comanda mediante solicitação do Cliente.
+
+\textbf{Identificador: CDU23}
+
+\textbf{Importância: 3}
+
+\textbf{Ator Principal: }Garçom.
+
+\textbf{Pré- Condições:} O pedido deve ter sido incluído na comanda.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.3120003cm}|m{8.108cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+\ 1- Consulta a comanda no sistema. &
+~
+\\\hline
+~
+ &
+2 - Retorna a comanda consultada\\\hline
+3- Solicita pedido a ser removido da comanda. &
+~
+\\\hline
+~
+ &
+4 - Retorna pedido\\\hline
+5 - Exclui pedido da comanda &
+~
+\\\hline
+~
+ &
+6 - Realiza Exclusão\\\hline
+~
+ &
+7 - Confirma Exclusão\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome: }Incluir comanda
+
+\textbf{Descrição: }O Garçom cria uma comanda ativa associada a um cliente.
+
+\textbf{Identificador: CDU24}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Principal: }Garçom.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.551cm}|m{7.9230003cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1- Solicita ao sistema o inicio de uma nova comanda. &
+~
+\\\hline
+~
+ &
+2 - Inclui uma nova comanda.\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Pagar comanda.
+
+\textbf{Descrição:} É efetuado o pagamento da comanda.
+
+\textbf{Identificador: CDU25}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Principal:} Garçom.
+
+\textbf{Pré- Condições:} A comanda deve ter sido incluída e estar ativa.
+
+\textbf{Fluxo Principal:} 
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.603cm}|m{7.896cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1- Consulta a comanda no sistema. &
+~
+\\\hline
+~
+ &
+2 - Retorna comanda\\\hline
+3 - Solicita finalização da comanda. &
+~
+\\\hline
+~
+ &
+4 - Finaliza comanda\\\hline
+~
+ &
+5 - Imprime a conta\\\hline
+6 - Informa ao sistema a forma de pagamento escolhida pelo cliente &
+~
+\\\hline
+~
+ &
+7 - Registra pagamento\\\hline
+~
+ &
+8 - Imprime cupom fiscal\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Consultar comanda.
+
+\textbf{Descrição:} O Garçom consulta no sistema por uma comanda de uma mesa específica.
+
+\textbf{Identificador: CDU26}
+
+\textbf{Importância: 1}
+
+\textbf{Ator Principal:} Garçom.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.656cm}|m{7.8170004cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1- Informa ao sistema qual mesa deseja consultar &
+~
+\\\hline
+~
+ &
+2 - Retorna as informações da mesa desejada\\\hline
+3 - Recebe a informação solicitada ao sistema &
+~
+\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Gerar Comandas.
+
+\textbf{Descrição:} O garçom solicita a geração de comandas.
+
+\textbf{Identificador: CDU27}
+
+\textbf{Importância: 5}
+
+\textbf{Ator Principal:} Garçom.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.551cm}|m{7.9490004cm}|}
+\hline
+Garçom &
+Sistema\\\hline
+1- Solicita a geração de comanda no sistema &
+~
+\\\hline
+~
+ &
+2- \ Gera a comanda\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+\textbf{Nome:} Gerar Relatório
+
+\textbf{Descrição:} O funcionário gera os relatórios .
+
+\textbf{Identificador: CDU28}
+
+\textbf{Importância: 4}
+
+\textbf{Ator Principal:} Funcionário.
+
+\textbf{Fluxo Principal:}
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{7.471cm}|m{8.029cm}|}
+\hline
+Funcionário &
+Sistema\\\hline
+1 - Solicita os tipos de relatórios &
+~
+\\\hline
+~
+ &
+2 - Informa opções de relatórios\\\hline
+3 - Seleciona o relatório desejado &
+~
+\\\hline
+~
+ &
+4 - Gera o relatório\\\hline
+\end{supertabular}
+\end{flushleft}
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip

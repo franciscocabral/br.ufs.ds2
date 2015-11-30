@@ -1,10 +1,15 @@
-class PedidosController < ApplicationController
-  before_action :set_pedido, only: [:show, :edit, :update, :destroy]
+﻿class PedidosController < ApplicationController
+  include ApplicationHelper
+  before_action do redirecionar_privilegio(3) end
+  before_action :set_pedido, only: [:show, :edit, :update, :destroy, :finalizar_pedido]
 
   # GET /pedidos
   # GET /pedidos.json
   def index
     @pedidos = Pedido.all
+	@funcionarios = Funcionario.all
+	@comandas = Comanda.all
+	@produtos = Produto.all
   end
 
   # GET /pedidos/1
@@ -51,6 +56,17 @@ class PedidosController < ApplicationController
     end
   end
 
+  def finalizar_pedido
+	if(@pedido.dataFinalizacao == nil)
+		@pedido.dataFinalizacao = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+		@pedido.save
+    end
+	respond_to do |format|
+      format.html { redirect_to pedido_index_path, notice: 'Pedido concluido com sucesso' }
+      format.json { head :no_content }
+    end
+  end
+  
   # DELETE /pedidos/1
   # DELETE /pedidos/1.json
   def destroy
@@ -60,7 +76,7 @@ class PedidosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pedido

@@ -1,39 +1,50 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption font-blue-sunglo">
+			<span class="caption-subject bold uppercase">Lista de pedidos</span>
+		</div>
+	</div>
 
-<h1>Listing Pedidos</h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Funcionário</th>
+				<th>Mesa</th>
+				<th>Produto</th>
 
-<table>
-  <thead>
-    <tr>
-      <th>Idpedido</th>
-      <th>Idfuncionario</th>
-      <th>Idproduto</th>
-      <th>Idcomanda</th>
-      <th>Datapedido</th>
-      <th>Datafinalizacao</th>
-      <th>Cancelado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+				<th>Hora do pedido</th>
+				<th>Hora finalização</th>
+				<th>Estado</th>
+				<th>Opções</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
 
-  <tbody>
-    <% @pedidos.each do |pedido| %>
-      <tr>
-        <td><%= pedido.idPedido %></td>
-        <td><%= pedido.idFuncionario %></td>
-        <td><%= pedido.idProduto %></td>
-        <td><%= pedido.idcomanda %></td>
-        <td><%= pedido.dataPedido %></td>
-        <td><%= pedido.dataFinalizacao %></td>
-        <td><%= pedido.cancelado %></td>
-        <td><%= link_to 'Show', pedido %></td>
-        <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
-        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pedido', new_pedido_path %>
+		<tbody>
+			<% @pedidos.each do |pedido| %>
+				<tr>
+					<td><%= @funcionarios.find(pedido.idFuncionario).nome%></td>
+					<td><%= @comandas.find(pedido.idcomanda).mesa %></td>
+					<td><%= @produtos.find(pedido.idProduto).nome %></td>
+					<td align = "center"><%= pedido.dataPedido.strftime("%H:%M")%></td>
+					<td align = "center">
+						<%if (pedido.dataFinalizacao != nil)%>
+							<%= pedido.dataFinalizacao.strftime("%H:%M") %>
+						<%end%>
+					</td>
+					<td>
+						<%if (pedido.cancelado)%>
+							cancelado
+						<%elsif(pedido.dataFinalizacao != nil)%>
+							finalizado
+						<%end%>
+					</td>
+					
+					<td align = "right"> <a href = <%= pedido_show_path(pedido)%>> <span class="glyphicon glyphicon-log-in" title="Detalhes"> </a></td>
+					<td align = "center"> <a href = <%= pedido_encerrar_path(pedido)%>> <span class="glyphicon glyphicon-check" title="Finalizar"> </a></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

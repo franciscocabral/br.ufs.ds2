@@ -20,7 +20,7 @@
         <td><%= link_to edit_fornecedor_path(fornecedor) do %>
           <span class="glyphicon glyphicon-edit" title="Modificar">
         <% end %></td>
-        <td><%= link_to fornecedor, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to fornecedor_delete_path(fornecedor) do %>
           <span class="glyphicon glyphicon-remove" title="Remover">
         <% end %></td>
       </tr>

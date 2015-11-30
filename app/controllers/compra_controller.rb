@@ -1,5 +1,6 @@
 ﻿class CompraController < ApplicationController
-  before_action :verificar_login
+  include ApplicationHelper
+  before_action do redirecionar_privilegio(0) end
   before_action :set_vende, only: [:show, :edit, :update, :destroy]
   before_action :set_info, only: [:new, :show, :edit, :update, :create]
   before_action :set_item, only: [:item_show, :item_edit, :item_update, :item_destroy]
@@ -169,13 +170,7 @@
       params.require(:vende).permit(:idFornecedor, :idItem, :data, :valor)
 	end
 	
-	def verificar_login
-	  if(not logged_in?)
-	    redirect_to login_path
-	  end
-	end
-	
-	def set_info()
+	def set_info
 	  @fornecedores = Fornecedor.order(:nome)
 	  @item = Item.order(:nome)
 	end

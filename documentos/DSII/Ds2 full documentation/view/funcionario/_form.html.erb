@@ -1,0 +1,110 @@
+<% content_for :css do %>
+<%= stylesheet_link_tag "/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" %>
+<% end %>
+
+<% content_for :js do %>
+<%= javascript_include_tag "/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" %>
+<% end %>
+
+<%= form_for(@funcionario) do |f| %>
+  <% if @funcionario.errors.any? %>
+  <div id="error_explanation">
+  <h2><%= pluralize(@funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+
+  <ul>
+    <% @funcionario.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.label :cidade %><br>
+    <%= f.text_field :cidade, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :num %><br>
+    <%= f.text_field :num, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+    <%= f.label :salario %><br>
+    <%= f.text_field :salario, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <%= f.label :dataContratacao %><br>
+    <%= f.text_field :dataContratacao, class: "form-control",data: {provide: "datepicker"} %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :ativo %><br>
+    <%= f.check_box :ativo, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.label :turno %><br>
+    <%= f.select :turno, [["Manhã", 0], ["Tarde", 1], ["Noite", 2]], {},class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :login %><br>
+    <%= f.text_field :login, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.label :nivelAcesso %><br>
+    <%= f.select :nivelAcesso, [["Garçon", 0], ["cozinheiro", 1], ["Gerente", 2]], {}, class: "form-control" %>
+  </div>
+</div>
+<br/><br/>
+<div class="actions">
+  <%= f.submit class: "btn green"%>
+</div>
+<% end %>

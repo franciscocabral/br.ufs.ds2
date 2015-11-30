@@ -16,14 +16,8 @@ Rails.application.routes.draw do
   post 'comandas/create'
   get 'sessions/new'
 
-  get 'fornecedor/search' => 'fornecedors#search'
-  post 'fornecedor/search' => 'fornecedors#search', as: :fornecedors_search
-  get 'fornecedor/relatorio/:id' => 'fornecedors#relatorio', as: :fornecedors_relatorio
-
-  get 'funcionario/search' => 'funcionarios#search'
-  post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search
-  get 'funcionario/demitir/:id' => 'funcionarios#demitir', as: :funcionarios_demitir
-
+  #rotas basicas
+  
   root                'static_pages#home'
   get    'home'    => 'static_pages#home'
   get    'help'    => 'static_pages#help'
@@ -33,8 +27,26 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
+  
+  #roteando controlador fornecedor
+  
+  get 'fornecedor/search' => 'fornecedors#search'
+  post 'fornecedor/search' => 'fornecedors#search', as: :fornecedors_search
+  get 'fornecedor/relatorio/:id' => 'fornecedors#relatorio', as: :fornecedors_relatorio
+  get 'fornecedor/del_fornecedor/:id', to: 'fornecedors#destroy', as: :fornecedor_delete
+  
+  #roteando controlador funcionario
+  
+  get 'funcionario/search' => 'funcionarios#search'
+  post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search
+  get 'funcionario/demitir/:id' => 'funcionarios#demitir', as: :funcionarios_demitir
 
-  #routing compra_controller.rb
+  #roteando controlador pedido/comanda
+  get 'pedidos' => 'pedidos#index', as: :pedido_index
+  get 'pedido/:id' => 'pedidos#show', as: :pedido_show
+  get 'pedido/:id/finalizar_pedido' => 'pedidos#finalizar_pedido', as: :pedido_encerrar
+  
+  #roteando controlador compra
   get 'compra/item_index', to: 'compra#item_index', as: :item_index
   post 'compra/item_index', to: 'compra#item_index'
   post 'compra/item(/:id)', to: 'compra#item_create'
@@ -53,7 +65,7 @@ Rails.application.routes.draw do
   get 'compra/vende/:id1/:id2/:id3/edit', to: 'compra#edit', as: :vende_edit
   get 'compra/delvende/:id1/:id2/:id3', to: 'compra#destroy', as: :vende_delete
 
-  # routing produto_controller.rb
+  # roteando controlador produtos
   get 'produtos/index', to: 'produtos#index', as: :produto_index
   post 'produtos(/:id)', to: 'produtos#create'
   patch 'produtos/:id', to: 'produtos#update'
