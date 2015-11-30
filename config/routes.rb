@@ -41,8 +41,10 @@ Rails.application.routes.draw do
   post 'funcionario/search' => 'funcionarios#search', as: :funcionarios_search
   get 'funcionario/demitir/:id' => 'funcionarios#demitir', as: :funcionarios_demitir
 
-  #roteando controlador pedido
+  #roteando controlador pedido/comanda
+  get 'pedidos' => 'pedidos#index', as: :pedido_index
   get 'pedido/:id' => 'pedidos#show', as: :pedido_show
+  get 'pedido/:id/finalizar_pedido' => 'pedidos#finalizar_pedido', as: :pedido_encerrar
   
   #roteando controlador compra
   get 'compra/item_index', to: 'compra#item_index', as: :item_index

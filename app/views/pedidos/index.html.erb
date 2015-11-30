@@ -1,5 +1,4 @@
 ﻿<p id="notice"><%= notice %></p>
-
 <div class="portlet light">
 	<div class="portlet-title">
 		<div class="caption font-blue-sunglo">
@@ -11,12 +10,12 @@
 		<thead>
 			<tr>
 				<th>Funcionário</th>
-				<th>Comanda</th>
+				<th>Mesa</th>
 				<th>Produto</th>
 
 				<th>Hora do pedido</th>
 				<th>Hora finalização</th>
-				<th>Cancelado</th>
+				<th>Estado</th>
 				<th>Opções</th>
 				<th colspan="3"></th>
 			</tr>
@@ -25,19 +24,25 @@
 		<tbody>
 			<% @pedidos.each do |pedido| %>
 				<tr>
-					<td><%= pedido.idFuncionario %></td>
-					<td><%= pedido.idcomanda %></td>
-					<td><%= pedido.idProduto %></td>
+					<td><%= @funcionarios.find(pedido.idFuncionario).nome%></td>
+					<td><%= @comandas.find(pedido.idcomanda).mesa %></td>
+					<td><%= @produtos.find(pedido.idProduto).nome %></td>
 					<td align = "center"><%= pedido.dataPedido.strftime("%H:%M")%></td>
 					<td align = "center">
 						<%if (pedido.dataFinalizacao != nil)%>
 							<%= pedido.dataFinalizacao.strftime("%H:%M") %>
 						<%end%>
 					</td>
-					<td><%= pedido.cancelado %></td>
+					<td>
+						<%if (pedido.cancelado)%>
+							cancelado
+						<%elsif(pedido.dataFinalizacao != nil)%>
+							finalizado
+						<%end%>
+					</td>
 					
 					<td align = "right"> <a href = <%= pedido_show_path(pedido)%>> <span class="glyphicon glyphicon-log-in" title="Detalhes"> </a></td>
-					<td align = "center"> <a href = <%= pedido_show_path(pedido)%>> <span class="glyphicon glyphicon-check" title="Finalizar"> </a></td>
+					<td align = "center"> <a href = <%= pedido_encerrar_path(pedido)%>> <span class="glyphicon glyphicon-check" title="Finalizar"> </a></td>
 				</tr>
 			<% end %>
 		</tbody>
