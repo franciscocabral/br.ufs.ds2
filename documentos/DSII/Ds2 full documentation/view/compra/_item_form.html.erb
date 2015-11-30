@@ -1,0 +1,37 @@
+﻿<%= form_for(@item, url: item_show_path(@item)) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "erro") %> impediram o sucesso da operacao:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, :class => "form-control input-medium" %>
+  </div>
+  <div class="field">
+    <%= f.label :marca %><br>
+    <%= f.text_field :marca, :class => "form-control input-medium" %>
+  </div>
+  <div class="field">
+    <%= f.label :descrição %><br>
+    <%= f.text_field :descricao, :class => "form-control input-medium" %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade %><br>
+    <%= f.number_field :quantidade, :class => "form-control input-small" %>
+  </div>
+  <div class="field">
+    <%= f.label "Quantidade Mínima" %><br>
+    <%= f.number_field :quantidadeMinima, :class => "form-control input-small"%>
+  </div>
+  <br>
+  <div class="actions">
+	<%= f.submit "Salvar", :class => 'btn green' %>
+  </div>
+<% end %>

@@ -1,0 +1,46 @@
+﻿<p id="notice"><%= notice %></p>
+
+<div class="portlet light">
+	<div class="row">
+		<div class="col-sm-5">
+			<%= link_to item_new_path, class: "btn green", :method => :get do %>
+				<i class="fa fa-plus-circle"></i>
+				Cadastrar novo Item
+			<% end %>
+		</div>
+		<div class="col-sm-5"><%= button_to "Relatório dos Itens em falta", itens_falta_relatorio_path, :class => "btn btn-default", :method => :get %></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-5">
+			<%= link_to vende_new_path, class: "btn green", :method => :get do %>
+				<i class="fa fa-plus-circle"></i>
+				Registrar compra de Itens
+			<% end %>
+		</div>
+		<div class="col-sm-5"><%= button_to "Listar compras de itens", vende_index_path, :class => "btn btn-default", :method => :get  %></div>
+		
+	</div>
+</div>
+
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption font-blue-sunglo">
+			<span class="caption-subject bold uppercase">Lista de Itens</span>
+		</div>
+	</div>
+	<br>
+	<%= form_for(item_index_path) do |f| %>
+		<div class="col-md-4"> 
+			<%= f.text_field :nome, placeholder: 'Digite o nome do item',class: "form-control" %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Consulta", class: "btn btn-default"%>
+		</div>
+	<%end%>
+	
+	<%= render partial: 'item_table', locals: {items: @items } %>
+</div>
+
+<br>
+<br>

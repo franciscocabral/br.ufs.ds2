@@ -1,0 +1,15 @@
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-blue-sunglo">
+      <span class="caption-subject bold uppercase">Editando Funcionario: <%= @funcionario.nome %></span>
+    </div>
+  </div>
+  <div class="portlet-body">
+
+    <%= render 'form' %>
+
+    <%= link_to 'Show', @funcionario %> |
+    <%= link_to 'Back', funcionarios_path %>
+
+  </div>
+</div>
