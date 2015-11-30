@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to func
     else
       #Erro
-      flash.now[:danger] = 'Invalid Email/Password'
+      flash.now[:danger] = 'Email/Senha Invalidos'
       render 'new'
     end
   end
