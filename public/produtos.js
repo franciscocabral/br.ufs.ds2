@@ -2,6 +2,39 @@ var pdtItensSelecionados = [];
 var tabelaDeItens = document.getElementById("lista-de-itens");
 var tabelaDeItensSelecionados = document.getElementById("tabela-selecionados");
 
+function itemSel(){
+    return JSON.stringify(pdtItensSelecionados);
+}
+
+$('#cdstr').click(function(){
+    var input = $("<input>")
+        .attr("type", "hidden")
+        .attr("name", "items").val(itemSel());
+    $('#new_produto').append($(input));
+});
+
+// function cadastrar(){
+//     $.ajax({
+//         url: '/produto/componentes', 
+//         type: 'post', // performing a POST request
+//         data : {
+//             lista_componentes : pdtItensSelecionados,
+//             // componentes_produto : {
+//             //     id : -1,
+//             //     idCompoe: -1,
+//             //     idPrduto : document.getElementById("idProduto").value,
+//             //     idItem : document.getElementById("idItem").value,
+//             //     quantidade : document.getElementById("quantidade").value
+//             // },
+//         },
+//         dataType: 'json', 
+//         success: function(data) 
+//         {
+//             alert("Deu certo!")
+//         } 
+//     });
+// }
+
 function pdtChecarItensSelecionados() {    
     var tamanho = tabelaDeItens.rows.length;
     for (var i = 1; i < tamanho; i++) {

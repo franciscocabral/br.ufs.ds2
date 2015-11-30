@@ -63,9 +63,9 @@ Rails.application.routes.draw do
   get 'produtos/delproduto/:id', to: 'produtos#destroy', as: :produto_delete
 
   get 'produto/:produto_id/componentes_index', to: 'produtos#componentes_index', as: :componentes_index
-  post 'produtos/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
-  patch 'produtos/componentes/:id1/:id2/:id3', to: 'produtos#componentes_update'
-  get 'produtos/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_show', as: :componentes_show
+  post 'produto/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_create'
+  patch 'produto/componentes/:id1/:id2/:id3', to: 'produtos#componentes_update'
+  get 'produto/componentes((/:id1)(/:id2)(/:id3))', to: 'produtos#componentes_show', as: :componentes_show
   get 'produtos/componentes_new', to: 'produtos#componentes_new', as: :componentes_new
   get 'produtos/componentes/:id1/:id2/:id3/edit', to: 'produtos#componentes_edit', as: :componentes_edit
   get 'produto/componentes/delcomponente/:id', to: 'produtos#componentes_destroy', as: :componentes_delete

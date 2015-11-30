@@ -1,3 +1,5 @@
+# coding: utf-8
+require 'json'
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show, :edit, :update, :destroy]
   before_action :set_componentes_produto, only: [:show, :edit, :update, :destroy]
@@ -27,14 +29,24 @@ class ProdutosController < ApplicationController
   # POST /produtos
   # POST /produtos.json
   def create
-    @produto = Produto.new(produto_params)
-    respond_to do |format|
-      if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
-        format.json { render :show, status: :created, location: @produto }
-      else
-        format.html { render :new }
-        format.json { render json: @produto.errors, status: :unprocessable_entity }
+    Produto.transaction do
+      @produto = Produto.new(produto_params)
+      items = JSON.parse(params["items"])
+      respond_to do |format|
+        if @produto.save
+          items.each do |it|
+            componentes_produto = ComponentesProduto.new
+            componentes_produto.idProduto = @produto.idProduto
+            componentes_produto.idItem = it["id"]
+            componentes_produto.quantidade = it["quantidade"]
+            componentes_produto.save
+          end
+          format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
+          format.json { render :show, status: :created, location: @produto }
+        else
+          format.html { render :new }
+          format.json { render json: @produto.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -63,8 +75,8 @@ class ProdutosController < ApplicationController
       format.json { head :no_content }
     end
   end
-    
-    
+
+
 # Controlador Componente Protudo.
 
   # GET /componentes_produtos
@@ -87,20 +99,39 @@ class ProdutosController < ApplicationController
   def componentes_edit
   end
 
+  def componentes_adicionar
+  end
+
+
   # POST /componentes_produtos
   # POST /componentes_produtos.json
   def componentes_create
-    @componentes_produto = ComponentesProduto.new(componentes_produto_params)
+    puts "Começa"
+    puts params
+    teste = JSON.parse(params["items"])
+    # @lista_componentes.push({idItem: params['componentes_produto']['idItem'],
+    #                          quantidade: params['componentes_produto']['quantidade']})
+    # @lista_componentes.each do |x|
+    #   puts "Valor: #{x} ."
+    # end
+    puts "termina"
 
     respond_to do |format|
-      if @componentes_produto.save
         format.html { redirect_to :back, notice: 'Componente criado com sucesso.' }
-        format.json { render :show, status: :created, location: @componentes_produto }
-      else
-        format.html { render :new }
-        format.json { render json: @componentes_produto.errors, status: :unprocessable_entity }
-      end
+        #format.json { render :componentes_show, status: :created, location: @componentes_produto }
     end
+    
+    # @componentes_produto = ComponentesProduto.new(componentes_produto_params)
+
+    # respond_to do |format|
+    #   if @componentes_produto.save
+    #     format.html { redirect_to :back, notice: 'Componente criado com sucesso.' }
+    #     format.json { render :show, status: :created, location: @componentes_produto }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @componentes_produto.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /componentes_produtos/1
@@ -138,7 +169,7 @@ class ProdutosController < ApplicationController
     def componentes_produto_params
       params.require(:componentes_produto).permit(:idCompoe, :idProduto, :idItem, :quantidade)
     end
-    
+
     def set_produto
       @produto = Produto.find(params[:id])
     end
