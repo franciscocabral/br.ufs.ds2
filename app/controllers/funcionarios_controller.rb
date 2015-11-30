@@ -1,6 +1,6 @@
 class FuncionariosController < ApplicationController
   include ApplicationHelper
-  before_action only: [:new, :create, :update, :destroy] do redirecionar_privilegio(0) end
+  before_action only: [:new, :create, :index, :update, :destroy] do redirecionar_privilegio(0) end
   before_action :privilegio_funcionario, only: [:show, :edit] 
   before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
 
