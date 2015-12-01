@@ -14,6 +14,10 @@ $('#cdstr').click(function(){
     $('.edit_produto').append($(input));
 });
 
+$(window).load(function () {
+    pdtChecarItensSelecionados()
+});
+
 // function cadastrar(){
 //     $.ajax({
 //         url: '/produto/componentes', 
