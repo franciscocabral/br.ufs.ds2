@@ -21,12 +21,18 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
-    @componentes_produto = ComponentesProduto.new
+    @componentes_produto = @produto.componentes_produtos
     @items = Item.all
   end
 
   # GET /produtos/1/edit
   def edit
+    @produto = Produto.find(params[:id])
+    @componentes_produto = @produto.componentes_produtos
+    puts "[Aqui]"
+    puts "linha #{@componentes_produto.class}"
+    puts"[Nao aqui]"
+    @items = Item.all
   end
 
   # POST /produtos
@@ -57,13 +63,33 @@ class ProdutosController < ApplicationController
   # PATCH/PUT /produtos/1
   # PATCH/PUT /produtos/1.json
   def update
-    respond_to do |format|
-      if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto foi atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @produto }
-      else
-        format.html { render :edit }
-        format.json { render json: @produto.errors, status: :unprocessable_entity }
+    Produto.transaction do
+      @produto =  Produto.find(params[:id])
+      items = JSON.parse(params["items"])      
+      respond_to do |format|
+        if @produto.update(produto_params)
+          items.each do |it|
+            if !@produto.componentes_produtos.any? {|c| c["idItem"] == it["id"]}
+              componentes_produto = ComponentesProduto.new
+              componentes_produto.idProduto = @produto.idProduto
+              componentes_produto.idItem = it["id"]
+              componentes_produto.quantidade = it["quantidade"]
+              componentes_produto.save
+            end
+          end
+
+          @produto.componentes_produtos.each do |cp|
+            if !items.any? {|i| i["id"] == cp["idItem"]}
+              cp.destroy
+            end
+          end
+          
+          format.html { redirect_to @produto, notice: 'Produto foi atualizado com sucesso.' }
+          format.json { render :show, status: :ok, location: @produto }
+        else
+          format.html { render :edit }
+          format.json { render json: @produto.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

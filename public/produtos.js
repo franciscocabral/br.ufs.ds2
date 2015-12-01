@@ -11,6 +11,7 @@ $('#cdstr').click(function(){
         .attr("type", "hidden")
         .attr("name", "items").val(itemSel());
     $('#new_produto').append($(input));
+    $('.edit_produto').append($(input));
 });
 
 // function cadastrar(){

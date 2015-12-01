@@ -43,6 +43,15 @@
                 </thead>
                 <br>
                 <tbody>
+
+                  <% for i in (0 ... @componentes_produto.length) do %>
+                    <tr id="<%= @componentes_produto[i].idItem %>}">
+                      <td> <%= @componentes_produto[i].item.nome %> </td>
+                      <td> <%= @componentes_produto[i].item.marca %> </td>
+                      <td> <%= @componentes_produto[i].quantidade %> </td>
+                      <td> <input type="button" value="Excluir" class="btn red" onClick="pdtRemoverItem(this.parentNode.parentNode.rowIndex)" /></td>
+                    </tr>
+                  <% end %>
                   
                   <% @items.each do |item| %>
                     
@@ -83,9 +92,8 @@
                  -->
             <br><br>
 
-
             <div class="actions">
-              <%= submit_tag "Cadastrar Produto", :class => "btn green", id: "cdstr" %><br>
+              <%= f.submit :class => "btn green", id: "cdstr" %><br>
               <%#= link_to "Teste", "#", class: "btn green", onclick: "cadastrar()", remote: true %>
             </div>
             <hr> 
@@ -124,15 +132,15 @@
                     <th>Quantidade</th>
                   </tr>
                 </thead>
-                <tbody>                  
+                <tbody>
                   <% @items.each do |item| %>
                     <tr>
                       <td>
-                        <input type="checkbox" onchange="pdtItemAlterado(this)" value="<%= item.id %>">
+                        <input type="checkbox" onchange="pdtItemAlterado(this)" value="<%= item.id %>" <%= "checked" if @componentes_produto.any? {|c| c["idItem"] == item.id} %> >
                       </td>
                       <td><%= item.nome %></td>
                       <td><%= item.marca %></td>
-                      <td style="width: 70px;"><input type="number" min="0" name="quantidade" class="form-control"/></td>
+                      <td style="width: 70px;"><input type="number" min="0" name="quantidade" class="form-control" value ="<%= @componentes_produto.find {|c| c["idItem"] == item.id}.nil? ? 0 : @componentes_produto.find {|c| c["idItem"] == item.id}["quantidade"] %>" /></td>
                     </tr>
                   <% end %>
                 </tbody>

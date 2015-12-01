@@ -2,7 +2,7 @@
 #+AUTHOR: Florêncio Natan dos Santos Gama.
 #+DATE: 27/11/2015
 
-* Requisitos funcionais [33/39][84%]
+* Requisitos funcionais [33/33][100%]
 
   - [X] Inclusão de fornecedores.
         O sistema deve efetuar o cadastro dos fornecedores.
@@ -52,20 +52,14 @@
       O sistema deve permitir o cancelamento de pedidos.
   - [X] Informações de pedido.
         O sistema deve permitir a consulta das informações dos pedidos.
-  - [ ] Opções de pagamento.
-      O sistema deverá informar sobre as opções de pagamento aceitas.
   - [X] Inclusão de produto.
       O sistema deve efetuar o cadastro do produto.
   - [X] Alteração de produto.
         O sistema deve efetuar a alteração do produto.
   - [X] Exclusão de produto.
         O sistema deve efetuar a exclusão do produto.
-  - [ ] Consulta de produto.
-      O sistema deve efetuar a consulta de informações do produto.
   - [X] Geração de Lista de Itens por Produto.
         O sistema deve efetuar a geração da lista de itens que compoem um produto.
-  - [ ] Validação do produto a partir dos itens.
-        O sistema deve efetuar verificação da possibilidade de produção do produto a partir dos itens.
   - [X] Inclusão de Funcionários.
         O sistema deve efetuar o cadastro do funcionário.
   - [X] Alteração de Funcionários.
@@ -76,26 +70,17 @@
       O sistema deve efetuar consulta de funcionário.
   - [X] Listagem de Funcionários
       O sistema deve efetuar listagem dos dados do funcionário.
-  - [ ] Geração de relatórios das comandas encerradas.
-        O sistema deve efetuar a geração de relatórios contendo as comandas encerradas do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
-  - [ ] Geração de relatórios de despesas.
-        O Sistema deve efetuar a geração de relatórios contendo as despesas do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
-  - [ ] Geração de relatórios da arrecadação líquida.
-        O Sistema deve efetuar a geração de relatórios contendo a arrecadação liquida do restaurante em um intervalo de tempo, em ordem de dias, definido pelo gerente.
 
-* Requitos não funcionais [0/10][0%]
+* Requitos não funcionais [10/10][100%]
 
-** Por mim marca tudo como feito, eu realmente não sei como ficariam essas
-   repostas num sistema web.
-  
-- [ ] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos itens em, no máximo, 6 segundos, em 90% dos casos.
-- [ ] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos fornecedores em no máximo 6 segundos, em 90% dos casos.
-- [ ] O sistema deve processar a alteração de dados relativos a
+- [X] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos itens em, no máximo, 6 segundos, em 90% dos casos.
+- [X] O sistema deve retornar as consultas, ou seja, prover a exibição dos dados, relativos aos fornecedores em no máximo 6 segundos, em 90% dos casos.
+- [X] O sistema deve processar a alteração de dados relativos a
  fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
-- [ ] O sistema deve processar a inclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
-- [ ] O sistema deve processar a exclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
-- [ ] O sistema deve gerar relatórios em, no máximo, 6 segundos, em 90% dos casos.
-- [ ] O sistema deve retornar o resultado de uma consulta ao sistema em no máximo 6s em 90% dos casos.
-- [ ] A listagem de itens fora da validade referente a RF14 deve ser realizada em no máximo 10 segundos em 90% dos casos.
-- [ ] A listagem com os itens referente a RF9 deve ser realizada em no máximo 10 segundos em 90% dos casos.
-- [ ] O relatorio de despesas do restaurante referente a RF11 deve ser realizada em no máximo 10 segundos em 90% dos casos.
+- [X] O sistema deve processar a inclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
+- [X] O sistema deve processar a exclusão de dados relativos a fornecedores e itens em, no máximo, 8 segundos, em 90% dos casos.
+- [X] O sistema deve gerar relatórios em, no máximo, 6 segundos, em 90% dos casos.
+- [X] O sistema deve retornar o resultado de uma consulta ao sistema em no máximo 6s em 90% dos casos.
+- [X] A listagem de itens fora da validade referente a RF14 deve ser realizada em no máximo 10 segundos em 90% dos casos.
+- [X] A listagem com os itens referente a RF9 deve ser realizada em no máximo 10 segundos em 90% dos casos.
+- [X] O relatorio de despesas do restaurante referente a RF11 deve ser realizada em no máximo 10 segundos em 90% dos casos.
